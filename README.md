@@ -1,5 +1,5 @@
 # **KITAB-Bench: A Comprehensive Arabic OCR Benchmark**
-![KITAB-Bench](your_image_link_here)
+![Project Logo](static/images/kitab.png)
 
 ## **Overview**
 With the increasing adoption of **Retrieval-Augmented Generation (RAG)** in document processing, robust Arabic **Optical Character Recognition (OCR)** is essential for knowledge extraction. Arabic OCR presents unique challenges due to:
