@@ -7,7 +7,7 @@ import re
 from PIL import Image
 import datasets
 
-from models import GeminiOCR, GPT4oOCR, InterVL25OCR, Qwen2VLOCR, Qwen25VLOCR
+from models import GeminiOCR, GPT4oOCR, InterVL25OCR, Qwen2VLOCR, Qwen25VLOCR, AVAILABLE_MODELS
 
 
 VQA_PROMPT_TEMP = """You are given a question and some choices. Just answer with the choice letter. Nothing else.
@@ -114,7 +114,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("--model_name", type=str, default="gemini")
+    parser.add_argument("--model_name", type=str, default="gemini", choices=AVAILABLE_MODELS)
     parser.add_argument("--flash_attn", default=False, action="store_true")
     parser.add_argument("--max_image_size", type=int, default=1024)
     args = parser.parse_args()
