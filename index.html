@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="./static/css/leaderboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="./static/css/index.css">
-    <link rel="icon" href="static/images/icon3.png">
+    <link rel="icon" href="static/images/icon2.ico">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="static/js/fontawesome.all.min.js"></script>
@@ -41,30 +41,35 @@
     <script src="static/js/bulma-slider.min.js"></script>
     <script src="static/js/index.js"></script>
 
-     <style>
+    <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
+
         #content-container {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: 40px;
         }
+
         #pie-chart {
             width: 400px;
             height: 400px;
         }
+
         #image-container {
             width: 100%;
             height: 400px;
         }
+
         #image-container img {
             max-width: 80%;
             height: auto;
         }
+
         .chart-grid {
             display: flex;
             flex-wrap: wrap;
@@ -72,6 +77,7 @@
             max-width: 2000px;
             margin: 0 auto;
         }
+
         .bar-chart {
             width: 400px;
             height: 300px;
@@ -94,33 +100,33 @@
                             A Comprehensive Multi-Domain Benchmark for
                             Arabic OCR and Document Understanding
                         </h2>
-        <div class="is-size-5 publication-authors">               
-        <p>
-            Ahmed Heakl<sup style="color:#3399FF;">1*</sup>, 
-            Abdullah Sohail<sup style="color:#3399FF;">1*</sup>, 
-            Mukul Ranjan<sup style="color:#3399FF;">1*</sup>, 
-            Rania Hossam<sup style="color:#3399FF;">1*</sup>, 
-            Ghazi Ahmed<sup style="color:#4CB5AE;">1</sup>, 
-            Mohamed El-Geish<sup style="color:#4CB5AE;">2</sup>, 
-            Omar Maher<sup style="color:#4CB5AE;">2</sup>, 
-            Zhiqiang Shen<sup style="color:#4CB5AE;">1</sup>, 
-            Fahad S. Khan<sup style="color:#3399FF;">1, </sup><sup style="color:#FF66B3;">3</sup>, 
-            Salman Khan<sup style="color:#3399FF;">1, </sup><sup style="color:#FFA280;">4</sup>, 
-        </p>
-        <p><em>* Equal Contributions</em></p>
-        <p>
-            <sup style="color:#3399FF;">1</sup>Mohamed bin Zayed University of AI, 
-            <sup style="color:#3399FF;">2</sup>Monta AI, 
-            <sup style="color:#FF66B3;">3</sup>Linköping University, 
-            <sup style="color:#FFA280;">4</sup>Australian National University
-        </p>
-        </div>
-                        
+                        <div class="is-size-5 publication-authors">
+                            <p>
+                                Ahmed Heakl<sup style="color:#3399FF;">1*</sup>,
+                                Abdullah Sohail<sup style="color:#3399FF;">1*</sup>,
+                                Mukul Ranjan<sup style="color:#3399FF;">1*</sup>,
+                                Rania Hossam<sup style="color:#3399FF;">1*</sup>,
+                                Ghazi Ahmed<sup style="color:#4CB5AE;">1</sup>,
+                                Mohamed El-Geish<sup style="color:#4CB5AE;">2</sup>,
+                                Omar Maher<sup style="color:#4CB5AE;">2</sup>,
+                                Zhiqiang Shen<sup style="color:#4CB5AE;">1</sup>,
+                                Fahad S. Khan<sup style="color:#3399FF;">1, </sup><sup style="color:#FF66B3;">3</sup>,
+                                Salman Khan<sup style="color:#3399FF;">1, </sup><sup style="color:#FFA280;">4</sup>,
+                            </p>
+                            <p><em>* Equal Contributions</em></p>
+                            <p>
+                                <sup style="color:#3399FF;">1</sup>Mohamed bin Zayed University of AI,
+                                <sup style="color:#3399FF;">2</sup>Monta AI,
+                                <sup style="color:#FF66B3;">3</sup>Linköping University,
+                                <sup style="color:#FFA280;">4</sup>Australian National University
+                            </p>
+                        </div>
+
 
                         <div class="column has-text-centered">
                             <div class="publication-links">
                                 <!-- PDF Link. -->
-                                <span class="link-block">
+                                <!-- <span class="link-block">
                                     <a href="https://arxiv.org/abs/2410.18976"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
@@ -128,8 +134,8 @@
                                         </span>
                                         <span>Paper</span>
                                     </a>
-                                </span>
-                                <span class="link-block">
+                                </span> -->
+                                <!-- <span class="link-block">
                                     <a href="https://arxiv.org/abs/2410.18976"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
@@ -137,10 +143,10 @@
                                         </span>
                                         <span>arXiv</span>
                                     </a>
-                                </span>
+                                </span> -->
                                 <!-- Code Link. -->
                                 <span class="link-block">
-                                    <a href="https://github.com/ahmedheakl/ocr-benchmark"
+                                    <a href="https://github.com/mbzuai-oryx/KITAB-Bench"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fab fa-github"></i>
@@ -157,14 +163,15 @@
                                     </a>
                                 </span>
                                 <!-- Leaderboard Link. -->
-                                <span class="link-block">
-                                    <a href="https://huggingface.co/spaces/ahmedheakl/CAMEL-Bench-leaderboard" class="external-link button is-normal is-rounded is-dark">
+                                <!-- <span class="link-block">
+                                    <a href="https://huggingface.co/spaces/ahmedheakl/CAMEL-Bench-leaderboard"
+                                        class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <p style="font-size:18px">🏆</p>
                                         </span>
                                         <span>Leaderboard</span>
                                     </a>
-                                </span>
+                                </span> -->
                             </div>
 
                         </div>
@@ -177,39 +184,41 @@
     <section class="hero teaser">
         <div class="container is-max-desktop has-text-centered">
             <img src="static/images/intro.png" alt="KITAB-Bench Domains" style="width: 600px; height: 600px">
-            <p><i> The proposed KITAB-Bench covers nine diverse and challenging domains: layout detection, 
-                line recognition, image-to-text, VQA, diagram-to-code, table recognition, charts-to-JSON, 
-                PDF-to-Markdown conversion, and Arabic numericals. KITAB-Bench spans 36 sub-domains with 
-                over 8,809 samples, carefully curated to rigorously evaluate essential skills required for 
-                Arabic OCR and document analysis. The benchmark is designed to assess structured text recognition,
-                 complex layouts, handwritten text, tables, and chart understanding—providing a comprehensive 
-                 evaluation framework for modern Arabic OCR models and vision-language systems.</i>
+            <p><i> The proposed KITAB-Bench covers nine diverse and challenging domains: layout detection,
+                    line recognition, image-to-text, VQA, diagram-to-code, table recognition, charts-to-JSON,
+                    PDF-to-Markdown conversion, and Arabic numericals. KITAB-Bench spans 36 sub-domains with
+                    over 8,809 samples, carefully curated to rigorously evaluate essential skills required for
+                    Arabic OCR and document analysis. The benchmark is designed to assess structured text recognition,
+                    complex layouts, handwritten text, tables, and chart understanding—providing a comprehensive
+                    evaluation framework for modern Arabic OCR models and vision-language systems.</i>
             </p>
         </div>
     </section>
 
 
- <section class="section">
-    <div class="container is-max-desktop">
-        <!-- News -->
-        <div class="columns is-centered">
-            <div class="column is-full has-text-centered">
-                <h2 class="title is-3" style="display: inline-flex; align-items: center; justify-content: center;">
-                    <span class="icon" style="margin-right: 8px;">
-                        <img src="static/images/bell.png" alt="News Icon" style="width: 24px; height: 24px;">
-                    </span>
-                    News
-                </h2>
-                <p style="font-size: 18px;">
-                    <strong>[2024-10-24]</strong>: Our KITAB-Bench is now available on <a href="https://huggingface.co/collections/ahmedheakl/kitab-bench-677dd5d88d5db344d5595b78">HuggingFace</a>. We welcome all contributions and look forward to your participation!
-                    <br>
-                    <strong>[2025-01-23]</strong>: KITAB-Bench is submitted in ACL 2025.
-                </p>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- News -->
+            <div class="columns is-centered">
+                <div class="column is-full has-text-centered">
+                    <h2 class="title is-3" style="display: inline-flex; align-items: center; justify-content: center;">
+                        <span class="icon" style="margin-right: 8px;">
+                            <img src="static/images/bell.png" alt="News Icon" style="width: 24px; height: 24px;">
+                        </span>
+                        News
+                    </h2>
+                    <p style="font-size: 18px;">
+                        <strong>[2024-10-24]</strong>: Our KITAB-Bench is now available on <a
+                            href="https://huggingface.co/collections/ahmedheakl/kitab-bench-677dd5d88d5db344d5595b78">HuggingFace</a>.
+                        We welcome all contributions and look forward to your participation!
+                        <br>
+                        <strong>[2025-01-23]</strong>: KITAB-Bench is submitted in ACL 2025.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-            
+    </section>
+
     <section class="section">
         <div class="container is-max-desktop">
             <!-- Abstract. -->
@@ -218,13 +227,27 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            With the growing adoption of Retrieval-Augmented Generation (RAG) in document processing, robust text recognition has become increasingly critical for knowledge extraction. While OCR (Optical Character Recognition) for English and other languages benefits from large datasets and well-established benchmarks, Arabic OCR faces unique challenges due to its cursive script, right-to-left text flow, and complex typographic and calligraphic features.
+                            With the growing adoption of Retrieval-Augmented Generation (RAG) in document processing,
+                            robust text recognition has become increasingly critical for knowledge extraction. While OCR
+                            (Optical Character Recognition) for English and other languages benefits from large datasets
+                            and well-established benchmarks, Arabic OCR faces unique challenges due to its cursive
+                            script, right-to-left text flow, and complex typographic and calligraphic features.
 
-We present KITAB-Bench, a comprehensive Arabic OCR benchmark that fills the gaps in current evaluation systems. Our benchmark comprises 8,809 samples across 9 major domains and 36 sub-domains, encompassing diverse document types including handwritten text, structured tables, and specialized coverage of 21 chart types for business intelligence.
+                            We present KITAB-Bench, a comprehensive Arabic OCR benchmark that fills the gaps in current
+                            evaluation systems. Our benchmark comprises 8,809 samples across 9 major domains and 36
+                            sub-domains, encompassing diverse document types including handwritten text, structured
+                            tables, and specialized coverage of 21 chart types for business intelligence.
 
-Our findings show that modern vision-language models (such as GPT-4, Gemini, and Qwen) outperform traditional OCR approaches (like EasyOCR, PaddleOCR, and Surya) by an average of 60% in Character Error Rate (CER). Furthermore, we highlight significant limitations of current Arabic OCR models, particularly in PDF-to-Markdown conversion, where the best model Gemini-2.0-Flash achieves only 65% accuracy.
+                            Our findings show that modern vision-language models (such as GPT-4, Gemini, and Qwen)
+                            outperform traditional OCR approaches (like EasyOCR, PaddleOCR, and Surya) by an average of
+                            60% in Character Error Rate (CER). Furthermore, we highlight significant limitations of
+                            current Arabic OCR models, particularly in PDF-to-Markdown conversion, where the best model
+                            Gemini-2.0-Flash achieves only 65% accuracy.
 
-This underscores the challenges in accurately recognizing Arabic text, including issues with complex fonts, numeral recognition errors, word elongation, and table structure detection. This work establishes a rigorous evaluation framework that can drive improvements in Arabic document analysis methods and bridge the performance gap with English OCR technologies.
+                            This underscores the challenges in accurately recognizing Arabic text, including issues with
+                            complex fonts, numeral recognition errors, word elongation, and table structure detection.
+                            This work establishes a rigorous evaluation framework that can drive improvements in Arabic
+                            document analysis methods and bridge the performance gap with English OCR technologies.
                         </p>
                     </div>
                 </div>
@@ -232,17 +255,18 @@ This underscores the challenges in accurately recognizing Arabic text, including
             <!--/ Abstract. -->
 
     </section>
-    
+
     <h1><b>Challenges in Arabic OCR</b></h1>
-<style>
-    h1 {
-        font-size: 25px; /* Adjust the size as needed */
-        font-weight: bold;
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-</style>
+    <style>
+        h1 {
+            font-size: 25px;
+            /* Adjust the size as needed */
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
 
     <section class="hero teaser">
         <div class="container is-max-desktop has-text-centered">
@@ -251,15 +275,16 @@ This underscores the challenges in accurately recognizing Arabic text, including
     </section>
 
     <h1><b>Task Categories in KITAB-Bench</b></h1>
-<style>
-    h1 {
-        font-size: 25px; /* Adjust the size as needed */
-        font-weight: bold;
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-</style>
+    <style>
+        h1 {
+            font-size: 25px;
+            /* Adjust the size as needed */
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
 
     <section class="hero teaser">
         <div class="container is-max-desktop has-text-centered">
@@ -268,15 +293,16 @@ This underscores the challenges in accurately recognizing Arabic text, including
     </section>
 
     <h1><b>Data Generation Pipeline</b></h1>
-<style>
-    h1 {
-        font-size: 25px; /* Adjust the size as needed */
-        font-weight: bold;
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-</style>
+    <style>
+        h1 {
+            font-size: 25px;
+            /* Adjust the size as needed */
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
 
     <section class="hero teaser">
         <div class="container is-max-desktop has-text-centered">
@@ -480,7 +506,7 @@ This underscores the challenges in accurately recognizing Arabic text, including
             </div>
     </section>
 -->
-<!--
+    <!--
 <section class="section">
     <div class="container is-max-desktop">
     
@@ -512,10 +538,12 @@ This underscores the challenges in accurately recognizing Arabic text, including
             margin: 350px;
             text-align: center;
         }
+
         h2 {
-            font-weight: bold; 
+            font-weight: bold;
             text-align: center;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -523,91 +551,245 @@ This underscores the challenges in accurately recognizing Arabic text, including
             margin-left: auto;
             margin-right: auto;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: center;
         }
+
         th {
             background-color: #3498DB;
             color: white;
             font-weight: bold;
         }
+
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+
         .highlight {
             font-weight: bold;
             background-color: #F39C12;
             color: white;
         }
     </style>
-</head>
-<body>
+    </head>
 
-<h1><b>Performance Comparison of SOTA Models on KITAB-Bench</b></h1>
-<style>
-    h1 {
-        font-size: 25px; /* Adjust the size as needed */
-        font-weight: bold;
-        text-align: center;
-        margin-top: 20px;
-    }
-</style>
+    <body>
 
-<table>
-    <thead>
-        <tr>
-            <th rowspan="2">Dataset</th>
-            <th rowspan="2">Size</th>
-            <th colspan="2">GPT-4o</th>
-            <th colspan="2">GPT-4o-mini</th>
-            <th colspan="2">Gemini-2.0-Flash</th>
-            <th colspan="2">Qwen2-VL</th>
-        </tr>
-        <tr>
-            <th>CER</th> <th>WER</th>
-            <th>CER</th> <th>WER</th>
-            <th>CER</th> <th>WER</th>
-            <th>CER</th> <th>WER</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td>PATS</td> <td>500</td> <td>0.23</td> <td>0.30</td> <td>0.53</td> <td>0.71</td> <td>0.01</td> <td>0.02</td> <td>1.02</td> <td>1.02</td></tr>
-        <tr><td>SythenAR</td> <td>500</td> <td>0.09</td> <td>0.20</td> <td>0.14</td> <td>0.32</td> <td>0.07</td> <td>0.17</td> <td>0.59</td> <td>1.13</td></tr>
-        <tr><td>HistoryAr</td> <td>200</td> <td>0.51</td> <td>0.82</td> <td>0.67</td> <td>0.96</td> <td>0.28</td> <td>0.64</td> <td>3.46</td> <td>2.86</td></tr>
-        <tr><td>HistoricalBooks</td> <td>10</td> <td>0.41</td> <td>0.76</td> <td>0.59</td> <td>0.88</td> <td>0.05</td> <td>0.22</td> <td>1.90</td> <td>2.16</td></tr>
-        <tr><td>Khatt</td> <td>200</td> <td>0.45</td> <td>0.74</td> <td>0.64</td> <td>0.91</td> <td>0.19</td> <td>0.45</td> <td>1.12</td> <td>5.04</td></tr>
-        <tr><td>Adab</td> <td>200</td> <td>0.30</td> <td>0.73</td> <td>0.35</td> <td>0.83</td> <td>0.19</td> <td>0.56</td> <td>0.63</td> <td>1.08</td></tr>
-        <tr><td>Muharaf</td> <td>200</td> <td>0.56</td> <td>0.90</td> <td>0.63</td> <td>0.94</td> <td>0.33</td> <td>0.69</td> <td>3.57</td> <td>2.87</td></tr>
-        <tr><td>OnlineKhatt</td> <td>200</td> <td>0.29</td> <td>0.63</td> <td>0.41</td> <td>0.76</td> <td>0.17</td> <td>0.44</td> <td>1.30</td> <td>2.01</td></tr>
-        <tr><td>ISI-PPT</td> <td>500</td> <td>0.08</td> <td>0.18</td> <td>0.15</td> <td>0.31</td> <td>0.06</td> <td>0.15</td> <td>1.03</td> <td>1.06</td></tr>
-        <tr><td>ArabicOCR</td> <td>50</td> <td>0.06</td> <td>0.26</td> <td>0.16</td> <td>0.46</td> <td>0.00</td> <td>0.02</td> <td>1.25</td> <td>1.50</td></tr>
-        <tr><td>Hindawi</td> <td>200</td> <td>0.34</td> <td>0.56</td> <td>0.48</td> <td>0.71</td> <td>0.01</td> <td>0.04</td> <td>1.82</td> <td>2.05</td></tr>
-        <tr><td>EvArest</td> <td>800</td> <td>0.20</td> <td>0.38</td> <td>0.25</td> <td>0.51</td> <td>0.18</td> <td>0.36</td> <td>0.41</td> <td>0.95</td></tr>
-        <tr class="highlight"><td><b>Total</b></td> <td><b>3,760</b></td> <td><b>0.31</b></td> <td><b>0.55</b></td> <td><b>0.43</b></td> <td><b>0.71</b></td> <td><b>0.13</b></td> <td><b>0.32</b></td> <td><b>1.48</b></td> <td><b>1.20</b></td></tr>
-    </tbody>
-</table>
+        <h1><b>Performance Comparison of SOTA Models on KITAB-Bench</b></h1>
+        <style>
+            h1 {
+                font-size: 25px;
+                /* Adjust the size as needed */
+                font-weight: bold;
+                text-align: center;
+                margin-top: 20px;
+            }
+        </style>
+
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Dataset</th>
+                    <th rowspan="2">Size</th>
+                    <th colspan="2">GPT-4o</th>
+                    <th colspan="2">GPT-4o-mini</th>
+                    <th colspan="2">Gemini-2.0-Flash</th>
+                    <th colspan="2">Qwen2-VL</th>
+                </tr>
+                <tr>
+                    <th>CER</th>
+                    <th>WER</th>
+                    <th>CER</th>
+                    <th>WER</th>
+                    <th>CER</th>
+                    <th>WER</th>
+                    <th>CER</th>
+                    <th>WER</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PATS</td>
+                    <td>500</td>
+                    <td>0.23</td>
+                    <td>0.30</td>
+                    <td>0.53</td>
+                    <td>0.71</td>
+                    <td>0.01</td>
+                    <td>0.02</td>
+                    <td>1.02</td>
+                    <td>1.02</td>
+                </tr>
+                <tr>
+                    <td>SythenAR</td>
+                    <td>500</td>
+                    <td>0.09</td>
+                    <td>0.20</td>
+                    <td>0.14</td>
+                    <td>0.32</td>
+                    <td>0.07</td>
+                    <td>0.17</td>
+                    <td>0.59</td>
+                    <td>1.13</td>
+                </tr>
+                <tr>
+                    <td>HistoryAr</td>
+                    <td>200</td>
+                    <td>0.51</td>
+                    <td>0.82</td>
+                    <td>0.67</td>
+                    <td>0.96</td>
+                    <td>0.28</td>
+                    <td>0.64</td>
+                    <td>3.46</td>
+                    <td>2.86</td>
+                </tr>
+                <tr>
+                    <td>HistoricalBooks</td>
+                    <td>10</td>
+                    <td>0.41</td>
+                    <td>0.76</td>
+                    <td>0.59</td>
+                    <td>0.88</td>
+                    <td>0.05</td>
+                    <td>0.22</td>
+                    <td>1.90</td>
+                    <td>2.16</td>
+                </tr>
+                <tr>
+                    <td>Khatt</td>
+                    <td>200</td>
+                    <td>0.45</td>
+                    <td>0.74</td>
+                    <td>0.64</td>
+                    <td>0.91</td>
+                    <td>0.19</td>
+                    <td>0.45</td>
+                    <td>1.12</td>
+                    <td>5.04</td>
+                </tr>
+                <tr>
+                    <td>Adab</td>
+                    <td>200</td>
+                    <td>0.30</td>
+                    <td>0.73</td>
+                    <td>0.35</td>
+                    <td>0.83</td>
+                    <td>0.19</td>
+                    <td>0.56</td>
+                    <td>0.63</td>
+                    <td>1.08</td>
+                </tr>
+                <tr>
+                    <td>Muharaf</td>
+                    <td>200</td>
+                    <td>0.56</td>
+                    <td>0.90</td>
+                    <td>0.63</td>
+                    <td>0.94</td>
+                    <td>0.33</td>
+                    <td>0.69</td>
+                    <td>3.57</td>
+                    <td>2.87</td>
+                </tr>
+                <tr>
+                    <td>OnlineKhatt</td>
+                    <td>200</td>
+                    <td>0.29</td>
+                    <td>0.63</td>
+                    <td>0.41</td>
+                    <td>0.76</td>
+                    <td>0.17</td>
+                    <td>0.44</td>
+                    <td>1.30</td>
+                    <td>2.01</td>
+                </tr>
+                <tr>
+                    <td>ISI-PPT</td>
+                    <td>500</td>
+                    <td>0.08</td>
+                    <td>0.18</td>
+                    <td>0.15</td>
+                    <td>0.31</td>
+                    <td>0.06</td>
+                    <td>0.15</td>
+                    <td>1.03</td>
+                    <td>1.06</td>
+                </tr>
+                <tr>
+                    <td>ArabicOCR</td>
+                    <td>50</td>
+                    <td>0.06</td>
+                    <td>0.26</td>
+                    <td>0.16</td>
+                    <td>0.46</td>
+                    <td>0.00</td>
+                    <td>0.02</td>
+                    <td>1.25</td>
+                    <td>1.50</td>
+                </tr>
+                <tr>
+                    <td>Hindawi</td>
+                    <td>200</td>
+                    <td>0.34</td>
+                    <td>0.56</td>
+                    <td>0.48</td>
+                    <td>0.71</td>
+                    <td>0.01</td>
+                    <td>0.04</td>
+                    <td>1.82</td>
+                    <td>2.05</td>
+                </tr>
+                <tr>
+                    <td>EvArest</td>
+                    <td>800</td>
+                    <td>0.20</td>
+                    <td>0.38</td>
+                    <td>0.25</td>
+                    <td>0.51</td>
+                    <td>0.18</td>
+                    <td>0.36</td>
+                    <td>0.41</td>
+                    <td>0.95</td>
+                </tr>
+                <tr class="highlight">
+                    <td><b>Total</b></td>
+                    <td><b>3,760</b></td>
+                    <td><b>0.31</b></td>
+                    <td><b>0.55</b></td>
+                    <td><b>0.43</b></td>
+                    <td><b>0.71</b></td>
+                    <td><b>0.13</b></td>
+                    <td><b>0.32</b></td>
+                    <td><b>1.48</b></td>
+                    <td><b>1.20</b></td>
+                </tr>
+            </tbody>
+        </table>
 
 
 
 
 
-    <footer class="footer">
-        <div class="columns is-centered">
-            <div class="column is-8">
-                <div class="content">
-                    <p>
-                        This website is website adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a
-                            href="https://mathvista.github.io/">MathVista</a>, licensed under a <a rel="license"
-                            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-                            Commons Attribution-ShareAlike 4.0 International License</a>.
-                    </p>
+        <footer class="footer">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is website adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a
+                                href="https://mathvista.github.io/">MathVista</a>, licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-</body>
+    </body>
 
 </html>
