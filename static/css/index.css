@@ -1,5 +1,26 @@
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
+.hero {
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: auto !important;
+}
+
+.hero-body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
 body {
   font-family: 'Noto Sans', sans-serif;
+  padding-top: 0rem !important;
+  padding-bottom: 1rem;
+
 }
 
 
@@ -29,6 +50,9 @@ body {
 
 
 .publication-title {
+  padding-top: 0rem !important;
+  padding-bottom: 1rem;
+
 }
 
 .publication-banner {
@@ -45,6 +69,14 @@ body {
 }
 
 .publication-header .hero-body {
+  padding-top: 0rem !important;
+  padding-bottom: 1rem;
+}
+
+
+.hero-body {
+  padding-top: 0rem !important;
+  padding-bottom: 1rem;
 }
 
 .publication-title {
@@ -154,4 +186,19 @@ body {
 }
 #interpolation-image-wrapper img {
   border-radius: 5px;
+}
+
+#org-banners {
+  display: flex;
+  justify-content: center; /* Centers the logos */
+  align-items: center;
+  gap: 40px; /* Adds space between logos */
+  padding: 20px 0; /* Adds padding at the top and bottom */
+  margin-top: 30px; /* Moves the section down slightly */
+}
+
+.org-banner {
+  max-height: 100px; /* Ensures the logos are not too big */
+  width: auto;
+  margin: 0 20px; /* Adds space between individual logos */
 }

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <meta name="description" content="A Comprehensive Multi-Domain Benchmark for
     Arabic OCR and Document Understanding">
@@ -42,6 +43,14 @@
     <script src="static/js/index.js"></script>
 
     <style>
+            .hero {
+        padding: 1rem 0; /* Reduce top and bottom padding */
+        min-height: auto; /* Remove fixed height */
+        padding-top: 0rem !important;  /* Remove extra padding */
+        padding-bottom: 1rem;          /* Adjust bottom padding */
+        margin-top: 0 !important;      /* Ensure no extra margin */
+        min-height: auto !important;   /* Remove fixed height */
+      }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -87,7 +96,7 @@
 </head>
 
 <body>
-    <section class="hero">
+    <section class="hero is-small">
         <div class="hero-body">
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
@@ -102,7 +111,7 @@
                         </h2>
                         <div class="is-size-5 publication-authors">
                             <p>
-                                Ahmed Heakl<sup style="color:#3399FF;">1*</sup>,
+                                Ahmed Heakl<sup style="color:#3399FF;">1*,2</sup>,
                                 Abdullah Sohail<sup style="color:#3399FF;">1*</sup>,
                                 Mukul Ranjan<sup style="color:#3399FF;">1*</sup>,
                                 Rania Hossam<sup style="color:#3399FF;">1*</sup>,
@@ -116,7 +125,7 @@
                             <p><em>* Equal Contributions</em></p>
                             <p>
                                 <sup style="color:#3399FF;">1</sup>Mohamed bin Zayed University of AI,
-                                <sup style="color:#3399FF;">2</sup>Monta AI,
+                                <sup style="color:#4CB5AE;">2</sup>Monta AI,
                                 <sup style="color:#FF66B3;">3</sup>Linköping University,
                                 <sup style="color:#FFA280;">4</sup>Australian National University
                             </p>
@@ -545,7 +554,7 @@
         }
 
         table {
-            width: 100%;
+            width: 1000px;
             border-collapse: collapse;
             margin-top: 20px;
             margin-left: auto;
@@ -771,7 +780,23 @@
             </tbody>
         </table>
 
-
+        <section>
+            
+            <div class="section" id="org-banners" style="display:flex">
+              <a href="https://mbzuai.ac.ae/" target="_blank" rel="external">
+                  <img class="center-block org-banner" src="static/images/mbzuai_logo.png" width="=200px">
+              </a>
+              <a href="https://www.monta.ai/" target="blank" class="ext-link">
+                  <img class="center-block org-banner" src="static/images/monta.png" width="500px" height="500px">
+              </a>
+              <a href="https://liu.se/en" target="_blank" rel="external">
+                  <img class="center-block org-banner" src="static/images/linkoping_logo.png" width="=200px">
+              </a>
+              <a href="https://www.anu.edu.au/" target="_blank" rel="external">
+                <img class="center-block org-banner" src="static/images/anu_logo.png" width="=100px">
+            </a>
+            </div>
+          </section>
 
 
 
