@@ -1,4 +1,4 @@
-# **KITAB-Bench: A Comprehensive Arabic OCR Benchmark**
+# **KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding**
 ![Project Logo](static/images/kitab.png)
 
 ## **Overview**
