@@ -91,23 +91,50 @@ To use KITAB-Bench, follow these steps:
 ```bash
 git clone https://github.com/yourusername/kitab-bench.git
 cd kitab-bench
+```
+
 ### **2️⃣ Install Dependencies**
 ```bash
 pip install -r requirements.txt
+```
 
 ### **3️⃣ Run Benchmark Evaluation**
 ```bash
 python evaluate.py --model GPT-4 --task ocr
+```
 
 ### **4️⃣ Custom OCR Model Evaluation**
 ```bash
 python evaluate.py --model YOUR_MODEL --task table_recognition
+```
 
-Contributing
-We welcome community contributions! 🚀
+# KITAB-Bench
 
-✅ Found a bug? Open an issue.
-✅ Want to add a new OCR model? Submit a pull request.
-✅ Improving evaluation metrics? Let us know!
+A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding.
 
+---
+
+## 🚀 Contributing 
+
+We welcome **contributions** from the community! 🚀  
+
+✅ If you find a **bug**, please [open an issue](https://github.com/your-repo/issues).  
+
+✅ Want to **add a new OCR model? Submit a pull request**.  
+
+✅ Found an **improvement**? We are **open to suggestions**!  
+
+---
+
+## 📖 Citations  
+
+If you use **KITAB-Bench** in your research, please cite:
+
+```bibtex
+@article{heakl2024kitab,
+    title={KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding},
+    author={Ahmed Heakl et al.},
+    year={2024}
+}
+```
 
