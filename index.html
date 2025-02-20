@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="A Comprehensive Arabic LMM Benchmark">
+    <meta name="keywords" content="CAMEL, Benchmark, LMM">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CAMEL-Bench: A Comprehensive Arabic LMM Benchmark</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/leaderboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/icon3.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #content-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        #pie-chart {
+            width: 400px;
+            height: 400px;
+        }
+        #image-container {
+            width: 100%;
+            height: 400px;
+        }
+        #image-container img {
+            max-width: 80%;
+            height: auto;
+        }
+        .chart-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 2000px;
+            margin: 0 auto;
+        }
+        .bar-chart {
+            width: 400px;
+            height: 300px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title is-bold">
+                            <img src="static/images/icon2.png" style="width:1em;vertical-align: middle" alt="Logo" />
+                            <span class="mmmu" style="vertical-align: middle">CAMEL-Bench</span>
+                        </h1>
+                        <h2 class="subtitle is-3 publication-subtitle">
+                            A Comprehensive Arabic LMM Benchmark
+                        </h2>
+        <div class="is-size-5 publication-authors">               
+        <p>
+            Sara Ghaboura<sup style="color:#3399FF;">1*</sup>, 
+            Ahmed Heakl<sup style="color:#3399FF;">1*</sup>, 
+            Omkar Thawakar<sup style="color:#3399FF;">1</sup>, 
+            Ali Alharthi<sup style="color:#3399FF;">1</sup>, 
+            Ines Riahi<sup style="color:#4CB5AE;">2</sup>, 
+            Abduljalil Saif<sup style="color:#4CB5AE;">2</sup>, 
+            Jorma Laaksonen<sup style="color:#4CB5AE;">2</sup>, 
+            Fahad S. Khan<sup style="color:#3399FF;">1, </sup><sup style="color:#FF66B3;">3</sup>, 
+            Salman Khan<sup style="color:#3399FF;">1, </sup><sup style="color:#FFA280;">4</sup>, 
+            Rao M. Anwer<sup style="color:#3399FF;">1, </sup><sup style="color:#4CB5AE;">2</sup>
+        </p>
+        <p><em>* Equal Contributions</em></p>
+        <p>
+            <sup style="color:#3399FF;">1</sup>Mohamed bin Zayed University of AI, 
+            <sup style="color:#4CB5AE;">2</sup>Aalto University, 
+            <sup style="color:#FF66B3;">3</sup>Linköping University, 
+            <sup style="color:#FFA280;">4</sup>Australian National University
+        </p>
+        </div>
+                        
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2410.18976"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2410.18976"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/mbzuai-oryx/Camel-Bench"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                                <!-- Dataset Link. -->
+                                <span class="link-block">
+                                    <a href="https://huggingface.co/collections/ahmedheakl/camel-bench-670750f3998395452cd3b7b1"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon" style="font-size:18px">🤗</span>
+                                        <span>Dataset</span>
+                                    </a>
+                                </span>
+                                <!-- Leaderboard Link. -->
+                                <span class="link-block">
+                                    <a href="https://huggingface.co/spaces/ahmedheakl/CAMEL-Bench-leaderboard" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <p style="font-size:18px">🏆</p>
+                                        </span>
+                                        <span>Leaderboard</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop has-text-centered">
+            <img src="static/images/eval-samples-figure.png" alt="geometric reasoning">
+            <p><i>The proposed CAMEL-Bench covers eight diverse and challenging domains: multimodal understanding and
+                    reasoning, OCR and document understanding,
+                    chart and diagram understanding, video understanding,
+                    cultural-specific understanding, medical imaging understanding, agricultural image understanding,
+                    and remote
+                    sensing understanding in Arabic. CAMEL-Bench covers 38 sub-domains with over <b>29K</b> questions
+                    carefully
+                    curated by native Arabic speakers to rigorously evaluate
+                    essential skills desired in Arabic LMMs.</i>
+            </p>
+        </div>
+    </section>
+
+
+ <section class="section">
+    <div class="container is-max-desktop">
+        <!-- News -->
+        <div class="columns is-centered">
+            <div class="column is-full has-text-centered">
+                <h2 class="title is-3" style="display: inline-flex; align-items: center; justify-content: center;">
+                    <span class="icon" style="margin-right: 8px;">
+                        <img src="static/images/bell.png" alt="News Icon" style="width: 24px; height: 24px;">
+                    </span>
+                    News
+                </h2>
+                <p style="font-size: 18px;">
+                    <strong>[2024-10-24]</strong>: Our CAMEL-Bench is now available on <a href="https://huggingface.co/collections/ahmedheakl/camel-bench-670750f3998395452cd3b7b1">HuggingFace</a>. We welcome all contributions and look forward to your participation!
+                    <br>
+                    <strong>[2025-01-23]</strong>: CAMEL-Bench is accepted in NACCL 2025.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+            
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Recent years have witnessed a significant interest in developing large multi-modal models
+                            (LMMs)
+                            capable of performing various visual reasoning and understanding tasks. This has led to the
+                            introduction
+                            of multiple LMM benchmarks to evaluate LMMs on different tasks. However, most existing LMM
+                            evaluation
+                            benchmarks are predominantly English-centric. In this work, we develop a comprehensive LMM
+                            evaluation
+                            benchmark for the Arabic language to represent a large population of over 400 million
+                            speakers.
+                        </p>
+                        <p>
+                            The proposed benchmark, named CAMEL-Bench, comprises eight diverse domains and 38
+                            sub-domains including,
+                            multi-image understanding, complex visual perception, handwritten document understanding,
+                            video understanding,
+                            medical imaging, plant diseases, and remote sensing-based land use understanding to evaluate
+                            broad scenario generalizability.
+                            Our CAMEL-Bench comprises around 29,036 questions that are filtered from a larger pool of
+                            samples, where the quality is
+                            manually verified by native speakers to ensure reliable model assessment. We conduct
+                            evaluations of both closed-source,
+                            including GPT-4 series, and open-source LMMs. Our analysis reveals the need for substantial
+                            improvement, especially among
+                            the best open-source models, with even the closed-source GPT-4o achieving an overall score
+                            of 62%. Our benchmark will be publicly released.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/ Abstract. -->
+
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-full has-text-centered content">
+                    <h2 class="title is-3" id="leaderboard">Leaderboard on CAMEL-Bench</h2>
+                    <div class="content">
+                        <p class="mt-3">Performance comparison of different closed-and open-source LMMs on <img
+                                src="static/images/icon3.png" style="width:1.0em;vertical-align: middle" alt="Logo" />
+                            <span class="mathvista">CAMEL-Bench</span>.
+                        </p>
+                        <table class="js-sort-table" id="results">
+                            <tr>
+                                <td class="js-sort-number"><strong>#</strong></td>
+                                <td class="js-sort-number"><strong>Model</strong></td>
+                                <td class="js-sort-number"><strong>Source</strong></td>
+                                <td class="js-sort-number"><strong><u>ALL</u></strong></td>
+                                <td class="js-sort-number"><strong>MM Understand. & Reasoning</strong></td>
+                                <td class="js-sort-number"><strong>OCR & Document Understanding</strong></td>
+                                <td class="js-sort-number"><strong>Charts & Diagrams Understanding</strong></td>
+                                <td class="js-sort-number"><strong>Video Understanding</strong></td>
+                                <td class="js-sort-number"><strong>Cultural Specific Understanding</strong></td>
+                                <td class="js-sort-number"><strong>Medical Imaging</strong></td>
+                                <td class="js-sort-number"><strong>Agro Specific</strong></td>
+                                <td class="js-sort-number"><strong>Remote Sensing</strong></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td><b class="best-score-text">GPT-4o 🥇</b></td>
+                                <td><a href="https://openai.com/index/hello-gpt-4o/" class="ext-link"
+                                        style="font-size: 16px;">Link</a></td>
+                                <td><b class="best-score-text">62.40</b></td>
+                                <td>57.90</td>
+                                <td>59.11</td>
+                                <td>73.57</td>
+                                <td>74.27</td>
+                                <td>80.86</td>
+                                <td>49.90</td>
+                                <td>80.75</td>
+                                <td>22.85</td>
+                            </tr>
+                            <td>2</td>
+                            <td><b class="best-score-text">GPT-4o-mini 🥈</b></td>
+                            <td><a href="https://deepmind.google/technologies/gemini/pro/" class="ext-link"
+                                    style="font-size: 16px;">Link</a></td>
+                            <td><b class="best-score-text">54.54</b></td>
+                            <td>48.82</td>
+                            <td>42.89</td>
+                            <td>64.98</td>
+                            <td>68.11</td>
+                            <td>65.92</td>
+                            <td>47.37</td>
+                            <td>79.58</td>
+                            <td>16.93</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><b class="">Qwen2-VL-7B 🥉</b></td>
+                                <td><a href="https://arxiv.org/abs/2409.12191" class="ext-link"
+                                        style="font-size: 16px;">Link</a></td>
+                                <td><b class="">54.45</b></td>
+                                <td>51.35</td>
+                                <td>49.06</td>
+                                <td>55.39</td>
+                                <td>62.64</td>
+                                <td>75.64</td>
+                                <td>39.42</td>
+                                <td>79.84</td>
+                                <td>22.28</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><b class="best-score-text">Gemini-1.5-Pro</b></td>
+                                <td><a href="https://deepmind.google/technologies/gemini/pro/" class="ext-link"
+                                        style="font-size: 16px;">Link</a></td>
+                                <td><b class="best-score-text">52.38</b></td>
+                                <td>46.67</td>
+                                <td>36.59</td>
+                                <td>47.06</td>
+                                <td>42.94</td>
+                                <td>56.24</td>
+                                <td>33.77</td>
+                                <td>72.12</td>
+                                <td>17.07</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><b class="">Gemini-1.5-Flash</b></td>
+                                <td><a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf"
+                                        class="ext-link" style="font-size: 16px;">Link</a></td>
+                                <td><b class="">45.14</b></td>
+                                <td>45.58</td>
+                                <td>33.59</td>
+                                <td>48.25</td>
+                                <td>53.31</td>
+                                <td>46.54</td>
+                                <td>42.86</td>
+                                <td>76.06</td>
+                                <td>14.95</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><b class="">Maya-7B</b></td>
+                                <td><a href="https://arxiv.org/abs/2412.07112v1" class="ext-link"
+                                        style="font-size: 16px;">Link</a></td>
+                                <td><b class="">41.80</b></td>
+                                <td>39.07</td>
+                                <td>26.70</td>
+                                <td>34.25</td>
+                                <td>47.23</td>
+                                <td>57.42</td>
+                                <td>31.57</td>
+                                <td>70.61</td>
+                                <td>27.53</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><b class="">LLaVa-OneVision-7B</b></td>
+                                <td><a href="https://arxiv.org/abs/2408.03326" class="ext-link"
+                                        style="font-size: 16px;">Link</a></td>
+                                <td><b class="">40.45</b></td>
+                                <td>42.90</td>
+                                <td>31.35</td>
+                                <td>40.86</td>
+                                <td>29.41</td>
+                                <td>66.02</td>
+                                <td>27.29</td>
+                                <td>75.03</td>
+                                <td>10.72</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><b class="">Pangea-7B-Instruct</b></td>
+                                <td><a href="https://arxiv.org/abs/2410.16153v1" class="ext-link"
+                                        style="font-size: 16px;">Link</a></td>
+                                <td><b class="">34.90</b></td>
+                                <td>40.09</td>
+                                <td>17.75</td>
+                                <td>38.75</td>
+                                <td>49.01</td>
+                                <td>20.34</td>
+                                <td>31.99</td>
+                                <td>74.51</td>
+                                <td>6.67</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><b class="">Qwen2-VL-2B</b></td>
+                                <td><a href="https://arxiv.org/abs/2409.12191" class="ext-link"
+                                        style="font-size: 16px;">Link</a></td>
+                                <td><b class="">32.62</b></td>
+                                <td>40.59</td>
+                                <td>25.68</td>
+                                <td>27.83</td>
+                                <td>38.90</td>
+                                <td>34.27</td>
+                                <td>29.12</td>
+                                <td>52.02</td>
+                                <td>12.56</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><b class="">InternVL2-8B</b></td>
+                                <td><a href="https://internvl.github.io/blog/2024-07-02-InternVL-2.0/" class="ext-link"
+                                    style="font-size: 16px;">Link</a></td>
+                                <td><b class="">30.26</b></td>
+                                <td>30.41</td>
+                                <td>15.91</td>
+                                <td>30.27</td>
+                                <td>51.42</td>
+                                <td>20.88</td>
+                                <td>29.48</td>
+                                <td>44.47</td>
+                                <td>5.36</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><b class="">LLaVa-NeXt-7B</b></td>
+                                <td><a href="https://llava-vl.github.io/blog/2024-01-30-llava-next/" class="ext-link"
+                                    style="font-size: 16px;">Link</a></td>
+                                <td><b class="">27.38</b></td>
+                                <td>26.33</td>
+                                <td>19.12</td>
+                                <td>27.56</td>
+                                <td>44.90</td>
+                                <td>28.30</td>
+                                <td>22.54</td>
+                                <td>42.00</td>
+                                <td>8.33</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Title -->
+        <h2 class="title is-3 has-text-centered">CAMEL-Bench Diversity</h2>
+
+        <!-- Columns for Image and Pie Chart -->
+        <div class="columns is-centered is-vcentered">
+            <!-- Image Column -->
+            <div class="column is-half has-text-centered">
+                <div id="image-container">
+                   
+                   <img src="static/images/CAMEL-B.png" alt="CAMEL-B Image" style="width: 100%; height: 380px; object-fit: cover;">
+
+                </div>
+            </div>
+            
+            <!-- Pie Chart Column -->
+            <div class="column is-half">
+                
+                <div id="pie-chart" style="width: 400px; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pie Chart Script -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+    // Pie Chart Data
+    var pieData = [{
+        values: [14251, 7931, 2820, 765, 1285, 506, 769, 709],
+        labels: [
+            'Multimodal Understanding and Reasoning',
+            'OCR and Document Understanding',
+            'Chart and Diagram Understanding',
+            'Video Understanding',
+            'Cultural Specific Understanding',
+            'Medical Imaging',
+            'Agricultural Image Understanding',
+            'Remote Sensing Understanding'
+        ],
+        type: 'pie',
+        marker: {
+            colors: [
+                '#FFEBF9', '#E6D3FF', '#E0EBFE', '#B9E6EA', '#E2FEDB', '#FFFFCF', '#FBDDB2', '#FBDFDA'
+            ],
+            line: {
+                color: ['#FF7E79', '#9437FF', '#0096FF', '#168E74', '#2A975A', '#FFC000', '#FF9300', '#FF7E79'],
+                width: 1
+            }
+        },
+        hoverinfo: 'label',
+        hoverlabel: {
+            bordercolor: '#808080',
+            font: {
+                color: 'black'
+            }
+        }
+    }];
+
+    // Adjust Layout to Remove Legend and Set Size
+    var pieLayout = {
+        height: 400,   // Adjust height to make the pie chart larger
+        width: 400,    // Adjust width to make the pie chart larger
+        showlegend: false,  // Hide the legend
+        margin: {
+            l: 20,  // Reduce left margin
+            r: 20,  // Reduce right margin
+            t: 20,  // Title margin
+            b: 20   // Reduce bottom margin
+        }
+    };
+
+    // Render Pie Chart
+    Plotly.newPlot('pie-chart', pieData, pieLayout);
+</script>
+
+
+    <footer class="footer">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This website is website adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a
+                            href="https://mathvista.github.io/">MathVista</a>, licensed under a <a rel="license"
+                            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                            Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
