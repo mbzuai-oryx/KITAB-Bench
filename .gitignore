@@ -171,4 +171,5 @@ cython_debug/
 .pypirc
 
 *.png
+!static/images/kitab.png
 *.json

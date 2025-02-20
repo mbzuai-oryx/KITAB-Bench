@@ -275,14 +275,28 @@ def evaluate_model(model_path: str, use_all_data: bool = False, num_samples: int
     return metrics
 
 if __name__ == "__main__":
-    MODEL_PATH = "/l/users/mukul.ranjan/ocr/layout/doclayout_yolo_docstructbench_imgsz1024.pt"
+    MODEL_PATH = "doclaynet_yolo_model_path"  # Default placeholder value
+    
+    if MODEL_PATH == "doclaynet_yolo_model_path":
+        raise ValueError(
+            "ERROR: Model path not provided!\n"
+            "Please provide the path to your trained YOLO DocLayout model.\n"
+            "You can download the pre-trained model by following instructions from "
+            "https://github.com/opendatalab/DocLayout-YOLO"
+        )
+    
     print("Model Path:", MODEL_PATH)
-    metrics = evaluate_model(MODEL_PATH, use_all_data=True)
-    print(f"\nResults:")
-    print(f"Processed images: {metrics['processed_images']}")
-    print(f"mAP@50: {metrics['map_50']:.4f}")
-    print(f"mAP@75: {metrics['map_75']:.4f}")
-    print(f"mAP@0.5:0.95: {metrics['map']:.4f}")
-    print(f"Precision: {metrics['macro_avg']['precision']:.4f}")
-    print(f"Recall: {metrics['macro_avg']['recall']:.4f}")
-    print(f"F1: {metrics['macro_avg']['f1']:.4f}")
+    try:
+        metrics = evaluate_model(MODEL_PATH, use_all_data=True)
+        print(f"\nResults:")
+        print(f"Processed images: {metrics['processed_images']}")
+        print(f"mAP@50: {metrics['map_50']:.4f}")
+        print(f"mAP@75: {metrics['map_75']:.4f}")
+        print(f"mAP@0.5:0.95: {metrics['map']:.4f}")
+        print(f"Precision: {metrics['macro_avg']['precision']:.4f}")
+        print(f"Recall: {metrics['macro_avg']['recall']:.4f}")
+        print(f"F1: {metrics['macro_avg']['f1']:.4f}")
+    except FileNotFoundError:
+        print(f"ERROR: Could not find model at path: {MODEL_PATH}")
+        print("Please ensure you have downloaded the model by following instructions from: "
+              "https://github.com/opendatalab/DocLayout-YOLO")
