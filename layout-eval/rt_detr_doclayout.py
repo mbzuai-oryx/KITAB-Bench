@@ -120,7 +120,7 @@ def evaluate_model(model_path: str, use_all_data: bool = False, num_samples: int
     
     # Load dataset
     print("Loading dataset...")
-    dataset = load_dataset("ahmedheakl/arocrbench_doclaynetv3", split="train")
+    dataset = load_dataset("ahmedheakl/arocrbench_doclaynet", split="train")
     if use_all_data:
         num_samples = len(dataset)
     dataset = dataset.select(range(num_samples))

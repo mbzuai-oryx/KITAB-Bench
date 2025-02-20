@@ -307,7 +307,7 @@ def evaluate_doclaynet(dataset, max_samples=None):
 
 def main():
     # Load DocLayNet dataset
-    dataset = load_dataset("ahmedheakl/arocrbench_doclaynetv3", split="train")
+    dataset = load_dataset("ahmedheakl/arocrbench_doclaynet", split="train")
     len_dataset = len(dataset)
     use_full_dataset = False
     max_samples=400
