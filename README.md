@@ -1,6 +1,6 @@
 # **KITAB-Bench: A Comprehensive Arabic OCR Benchmark**
-![GitHub Logo]([https://raw.githubusercontent.com/octocat/Spoon-Knife/main/logo.png](https://github.com/mbzuai-oryx/KITAB-Bench/blob/website/static/images/kitab.png))
-https://github.com/mbzuai-oryx/KITAB-Bench/blob/website/static/images/kitab.png
+![GitHub Logo](https://raw.githubusercontent.com/octocat/Spoon-Knife/main/logo.png](https://github.com/mbzuai-oryx/KITAB-Bench/blob/website/static/images/kitab.png)
+
 ## **Overview**
 With the increasing adoption of **Retrieval-Augmented Generation (RAG)** in document processing, robust Arabic **Optical Character Recognition (OCR)** is essential for knowledge extraction. Arabic OCR presents unique challenges due to:
 - **Cursive script** and **right-to-left text flow**.
