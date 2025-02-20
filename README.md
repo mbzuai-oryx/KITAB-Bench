@@ -91,3 +91,23 @@ To use KITAB-Bench, follow these steps:
 ```bash
 git clone https://github.com/yourusername/kitab-bench.git
 cd kitab-bench
+### **2️⃣ Install Dependencies**
+```bash
+pip install -r requirements.txt
+
+### **3️⃣ Run Benchmark Evaluation**
+```bash
+python evaluate.py --model GPT-4 --task ocr
+
+### **4️⃣ Custom OCR Model Evaluation**
+```bash
+python evaluate.py --model YOUR_MODEL --task table_recognition
+
+Contributing
+We welcome community contributions! 🚀
+
+✅ Found a bug? Open an issue.
+✅ Want to add a new OCR model? Submit a pull request.
+✅ Improving evaluation metrics? Let us know!
+
+
