@@ -1,6 +1,26 @@
-# **KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding**
-![Project Logo](static/images/kitab.png)
+# <img src="static/images/kitab.png" width="50" > **KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding**
+![](https://i.imgur.com/waxVImv.png)
 
+[Ahmed Heakl](https://huggingface.co/ahmedheakl) <sup> * </sup> &nbsp;
+[Abdullah Sohail](https://github.com/AbdullahSohail15) <sup> * </sup> &nbsp;
+[Mukul Ranjan](https://scholar.google.com/citations?user=fFBR0j0AAAAJ&hl=en)<sup> * </sup> &nbsp;
+[Rania Hossam](https://scholar.google.com/citations?user=ic1jai8AAAAJ&hl=en)<sup> * </sup> &nbsp;
+[Ghazi Shazan Ahmad](https://scholar.google.com/citations?hl=en&user=qxmI8TkAAAAJ) &nbsp;
+[Mohamed El-Geish](https://www.linkedin.com/in/elgeish/) &nbsp;
+[Omar Maher](https://www.linkedin.com/in/omaher/) &nbsp;
+[Zhiqiang Shen](https://zhiqiangshen.com/)&nbsp;
+[Fahad Shahbaz Khan](https://scholar.google.com/citations?hl=en&user=zvaeYnUAAAAJ) &nbsp;
+[Salman Khan](https://scholar.google.com/citations?hl=en&user=M59O9lkAAAAJ)
+<br>
+<br>
+<em> <sup> *Equal Contribution  </sup> </em>
+<br>
+  [![arXiv](https://img.shields.io/badge/arXiv-2502.0094-3399FF)](https://arxiv.org/abs/2502.00094)
+  [![Our Page](https://img.shields.io/badge/Visit-Our%20Page-8C7AFF?style=flat)](https://mbzuai-oryx.github.io/KITAB-Bench/)
+  [![GitHub issues](https://img.shields.io/github/issues/mbzuai-oryx/KITAB-Bench?color=FFF359&label=issues&style=flat)](https://github.com/mbzuai-oryx/KITAB-Bench/issues)
+  [![GitHub stars](https://img.shields.io/github/stars/mbzuai-oryx/KITAB-Bench?color=FF6A07&style=flat)](https://github.com/mbzuai-oryx/KITAB-Bench/stargazers)
+  [![GitHub license](https://img.shields.io/github/license/mbzuai-oryx/KITAB-Bench?color=FF6666)](https://github.com/mbzuai-oryx/KITAB-Bench/blob/main/LICENSE)
+  <br>
 ## **Overview**
 With the increasing adoption of **Retrieval-Augmented Generation (RAG)** in document processing, robust Arabic **Optical Character Recognition (OCR)** is essential for knowledge extraction. Arabic OCR presents unique challenges due to:
 - **Cursive script** and **right-to-left text flow**.
@@ -90,5 +110,24 @@ To use KITAB-Bench, follow these steps:
 
 ### **1️⃣ Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/kitab-bench.git
-cd kitab-bench
+git clone https://github.com/mbzuai-oryx/KITAB-Bench.git
+cd KITAB-Bench
+```
+###  **2️⃣ Layout Evaluation**
+```bash
+cd layout-eval
+
+# Evaluate a single model (RT-DETR, Surya, or YOLO) on BCE Layout dataset
+python rt_detr_bcelayout.py
+python test_surya_bce_layout.py
+python yolo_doc_bcelayout.py
+
+# Evaluate a single model on DocLayNet dataset
+python rt_detr_doclayout.py
+python test_surya_doclaynet.py
+python yolo_doc_doclayout.py
+
+# Evaluate all models at once
+python evaluate_all.py
+```
+
