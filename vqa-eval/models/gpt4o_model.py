@@ -32,7 +32,7 @@ class GPT4oOCR:
             }
         ]
 
-    def get_answer(self, image, prompt):
+    def __call__(self, prompt, image):
         messages = self._get_messages(image, prompt)
         client = OpenAI()
         result = client.chat.completions.create(

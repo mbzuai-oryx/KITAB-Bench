@@ -8,14 +8,9 @@ from PIL import Image
 import datasets
 
 from models import GeminiOCR, GPT4oOCR, InterVL25OCR, Qwen2VLOCR, Qwen25VLOCR, AVAILABLE_MODELS
+from prompts import VQA_PROMPT_TEMP
 
 
-VQA_PROMPT_TEMP = """You are given a question and some choices. Just answer with the choice letter. Nothing else.
-Question: 
-{question}
-Choices: 
-{choices}
-Now give me only the choice letter."""
 RESULTS_DIR = "results"
 MAX_TOKENS = 100
 os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -71,7 +66,7 @@ def resize(w, h, max_size):
         nw = min(w, int(aspect * nh))
     return nw, nh
 
-def get_model(model_name: str):
+def get_model(model_name: str, flash_attn):
     if model_name == "internvl25":
         return InterVL25OCR(max_tokens=MAX_TOKENS)
     if model_name == "gemini":
@@ -81,13 +76,13 @@ def get_model(model_name: str):
     if model_name == "gpt-4o-mini":
         return GPT4oOCR(max_tokens=MAX_TOKENS, model_name="gpt-4o-mini")
     if model_name == "qwen2vl":
-        return Qwen2VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2-VL-7B-Instruct", use_flash_attn=args.flash_attn)
+        return Qwen2VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2-VL-7B-Instruct", use_flash_attn=flash_attn)
     if model_name == "qwen25vl":
-        return Qwen25VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2.5-VL-7B-Instruct", use_flash_attn=args.flash_attn)
+        return Qwen25VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2.5-VL-7B-Instruct", use_flash_attn=flash_attn)
     raise ValueError(f"Model {model_name} not found")
 
 def main(args):
-    model = get_model(args.model_name)
+    model = get_model(args.model_name, args.flash_attn)
     for ds_id in tqdm(ds_ids):
         ds_name = ds_id.split("_")[-1]
         print(f"Evaluating {ds_name} ...")
