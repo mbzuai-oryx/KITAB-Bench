@@ -12,7 +12,7 @@ class GeminiOCR:
         self.model_name = model_name
         os.makedirs(self.tmp, exist_ok=True)
 
-    def __call__(self, prompt: str, image: Image):
+    def __call__(self, prompt: str, image: Image) -> str:
         response = self.client.models.generate_content(
             model=self.model_name,
             contents=[prompt, image])

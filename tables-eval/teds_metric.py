@@ -1,14 +1,3 @@
-# Copyright 2020 IBM
-# Author: peter.zhong@au1.ibm.com
-#
-# This is free software; you can redistribute it and/or modify
-# it under the terms of the Apache 2.0 License.
-#
-# This software is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# Apache 2.0 License for more details.
-
 import distance
 from apted import APTED, Config
 from apted.helpers import Tree
@@ -185,6 +174,23 @@ def aug_html(s):
     s = arabic_to_english_numerals(s)
     s = flatten_table(s)
     return f"<html>\n<body>\n{s}\n</body></html>"
+
+
+def teds_from_json(path: str):
+    import json
+    import pprint
+    with open('results/img2tabletesseract_html.json') as fp:
+        data = json.load(fp)
+    teds = TEDS(n_jobs=32)
+    pred_json = [aug_html(d['pred'].replace("html\n", "")) for d in data]
+    true_json = [aug_html(d['gt']) for d in data]
+    samples = [d['idx'] for d in data]
+    scores = teds.batch_evaluate(pred_json, true_json, samples)
+    pp = pprint.PrettyPrinter()
+    pp.pprint(scores)
+    avg = sum(scores.values()) * 100 / len(scores)
+    print(f"TEDS HTML Score: {avg:.2f}")
+    return avg
 
 if __name__ == '__main__':
     import json

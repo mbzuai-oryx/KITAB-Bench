@@ -47,25 +47,25 @@ def safe_to_df(s: str) -> pd.DataFrame:
     
     return df
 
-with open("results/doclingeasyocr_csv.json", "r") as f:
-    data = json.load(f)
+def jaccord_from_json(path):
+    with open(path, "r") as f:
+        data = json.load(f)
 
-
-tot = 0
-num_failed = 0
-bad_sample = []
-for f in tqdm(data):
-    try:
-        gt, pred = safe_to_df(f['gt']), safe_to_df(f['pred'])
-        score = compare_dataframes(gt, pred)
-        tot += score
-        if score < 0.1:
-            bad_sample.append(f['idx'])
-    except Exception as e:
-        idx = f['idx']
-        if "No columns to parse" in str(e): continue
-        print(f"Skipping sample {idx}: {traceback.format_exc()}\n===>GT:\n{f['gt']}\n===>Pred:\n{f['pred']}")
-        num_failed += 1
-tot /= len(data)
-print(f"Score: {tot*100:.2f} | Failed: {num_failed}/{len(data)}")
-print(bad_sample)
+    tot = 0
+    num_failed = 0
+    bad_sample = []
+    for f in tqdm(data):
+        try:
+            gt, pred = safe_to_df(f['gt']), safe_to_df(f['pred'])
+            score = compare_dataframes(gt, pred)
+            tot += score
+            if score < 0.1:
+                bad_sample.append(f['idx'])
+        except Exception as e:
+            idx = f['idx']
+            if "No columns to parse" in str(e): continue
+            print(f"Skipping sample {idx}: {traceback.format_exc()}\n===>GT:\n{f['gt']}\n===>Pred:\n{f['pred']}")
+            num_failed += 1
+    tot /= len(data)
+    print(f"Jaccord CSV Score: {tot*100:.2f} | Failed: {num_failed}/{len(data)}")
+    print(f"Bad samples found at {bad_sample}")
