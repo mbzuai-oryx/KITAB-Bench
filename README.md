@@ -21,6 +21,21 @@
   [![GitHub stars](https://img.shields.io/github/stars/mbzuai-oryx/KITAB-Bench?color=FF6A07&style=flat)](https://github.com/mbzuai-oryx/KITAB-Bench/stargazers)
   [![GitHub license](https://img.shields.io/github/license/mbzuai-oryx/KITAB-Bench?color=FF6666)](https://github.com/mbzuai-oryx/KITAB-Bench/blob/main/LICENSE)
   <br>
+
+## 📌 Table of Contents
+- [📖 Overview](#-overview)
+- [🌟 Key Highlights](#-key-highlights)
+- [📊 Dataset Overview](#-dataset-overview)
+- [📂 Domains](#-domains)
+- [📝 Benchmark Tasks](#-benchmark-tasks)
+- [📸 Task Examples](#-task-examples)
+- [🔄 Data Generation Pipeline](#-data-generation-pipeline)
+- [📏 Evaluation Metrics](#-evaluation-metrics)
+- [📊 Performance Results](#-performance-results)
+- [⚙️ Installation & Usage](#-installation--usage)
+- [📜 Citation](#-citation)
+
+---
   
 ## 📖 **Overview**  
 With the increasing adoption of **⚡ Retrieval-Augmented Generation (RAG)** in document processing, robust Arabic **🔍 Optical Character Recognition (OCR)** is essential for knowledge extraction. Arabic OCR presents unique challenges due to:  
@@ -34,11 +49,12 @@ We introduce **📚 KITAB-Bench**, a **comprehensive Arabic OCR benchmark** that
 ---
 
 ### 🌟 **Key Highlights**  
-✅ **9️⃣ major domains & 36️⃣ sub-domains** across **📄 8,809 samples**.  
+✅ **9️⃣ major domains & 36 sub-domains** across **📄 8,809 samples**.  
 ✅ **📜 Diverse document types**: PDFs, ✍️ handwritten text, 🏦 structured tables, ⚖️ financial & legal reports.  
-✅ **📊 Strong baselines**: Benchmarked against **🧐 Tesseract, 🤖 GPT-4o, 🔥 Gemini, 🦾 Qwen**, and more.  
-✅ **🔎 Evaluation across OCR, 🗂️ layout detection, 📑 table recognition, 📈 chart extraction, & 📂 PDF conversion.**  
-✅ **📏 Novel evaluation metrics**: 🏅 **Markdown Recognition (MARS)**, 🏆 **Table Edit Distance (TEDS)**, 📊 **Chart Data Extraction (SCRM)**.  
+✅ **Strong baselines**: Benchmarked against **Tesseract, GPT-4o, Gemini, Qwen**, and more.  
+✅ **Evaluation across OCR, layout detection, table recognition, chart extraction, & PDF conversion.**  
+✅ **Novel evaluation metrics**: **Markdown Recognition (MARS), Table Edit Distance (TEDS), Chart Data Extraction (SCRM).**  
+
 
 ---
 
