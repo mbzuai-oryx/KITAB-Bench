@@ -89,15 +89,15 @@ KITAB-Bench covers a **wide range of document types**:
 ## **Benchmark Tasks**
 KITAB-Bench evaluates **9 key OCR and document processing tasks**:
 
-1️⃣ **Text Recognition (OCR)** - Printed & handwritten Arabic OCR.  
-2️⃣ **Layout Detection** - Extracting text blocks, tables, figures, etc.  
-3️⃣ **Line Recognition** - Identifying & recognizing individual Arabic text lines.  
-4️⃣ **Table Recognition** - Parsing structured tables into machine-readable formats.  
-5️⃣ **PDF-to-Markdown** - Converting Arabic PDFs into structured Markdown format.  
-6️⃣ **Charts-to-DataFrame** - Extracting **21 types of charts** into structured datasets.  
-7️⃣ **Diagram-to-JSON** - Extracting **flowcharts, Venn diagrams, networks into JSON.**  
-8️⃣ **Visual Question Answering (VQA)** - Understanding questions about Arabic documents.  
-9️⃣ **Semantic Reasoning** - Analyzing **complex text layouts, diagrams, and mixed formats.**  
+1️⃣ [**Text Recognition (OCR)**](#text-recognition-(ocr)) - Printed & handwritten Arabic OCR.  
+2️⃣ [**Layout Detection**](#layout-detection) - Extracting text blocks, tables, figures, etc.  
+3️⃣ [**Line Detection**](#lines-detection--recognition) - Identifying & recognizing individual Arabic text lines.  
+4️⃣ [**Line Recognition**](#lines-detection--recognition) - Identifying & recognizing individual Arabic text lines.  
+5️⃣ [**Table Recognition**](#table-detection) - Parsing structured tables into machine-readable formats.  
+6️⃣ [**PDF-to-Markdown**](#table-detection) - Converting Arabic PDFs into structured Markdown format.  
+7️⃣ [**Charts-to-DataFrame**](#vqa) - Extracting **21 types of charts** into structured datasets.  
+8️⃣ [**Diagram-to-JSON**](#vqa) - Extracting **flowcharts, Venn diagrams, networks into JSON.**  
+9️⃣ [**Visual Question Answering (VQA)**](#vqa) - Understanding questions about Arabic documents.  
 
 ---
 ### **Task Examples**
@@ -128,12 +128,22 @@ To accurately assess OCR models, KITAB-Bench introduces **new Arabic OCR evaluat
 
 ## **Performance Results**
 
+### **Text Recognition (OCR)**
+<p align="center">
+<img src="static/images/ocr.png" alt="Alt text" width="80%" height="80%">
+</p>
+
 ### **Layout Detection**
 <p align="center">
 <img src="static/images/layputdet.png" alt="Alt text" width="80%" height="80%">
 </p>
 
-### **Table Detection**
+### **Line Detection & Recognition**
+<p align="center">
+<img src="static/images/line.png" alt="Alt text" width="80%" height="80%">
+</p>
+
+### **Table Recognition & PDF-to-Markdown**
 <p align="center">
 <img src="static/images/table.png" alt="Alt text" width="80%" height="80%">
 </p>
