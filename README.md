@@ -238,7 +238,16 @@ python3 eval.py --model_name easyocr # get predictions
 python3 metrics.py --model_name easyocr # get CER, WER, BLEU, chrF, and METEOR scores
 ```
 
-Charts, Diagrams, and PDF-to-Markdown evaluations are coming soon ...
+### **7️⃣ PDF-to-Markdown Evaluation**
+Available models are Docling (Tesseract, EasyOCR), Marker, Gemini-2.0-Flash, GPT-4o, GPT-4o-mini, Qwen2-VL and Qwen2.5-VL. 
+```bash
+cd pdfs-eval
+pip3 install -r requirements.txt
+python3 eval.py --model_name doclingeasyocr # get predictions
+python3 metrics.py --model_name doclingeasyocr # get MARS (markdown recognition score)
+```
+
+Charts and Diagrams evaluations are coming soon ...
 
 If you're using KITAB-Bench in your research or applications, please cite using this BibTeX:
 ```bibtex
