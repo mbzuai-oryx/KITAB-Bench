@@ -116,7 +116,7 @@ cd KITAB-Bench
 ###  **2️⃣ Layout Evaluation**
 ```bash
 cd layout-eval
-
+pip3 install -r requirements.txt
 # Evaluate a single model (RT-DETR, Surya, or YOLO) on BCE Layout dataset
 python rt_detr_bcelayout.py
 python test_surya_bce_layout.py
