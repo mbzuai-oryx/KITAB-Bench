@@ -158,6 +158,8 @@ python3 eval.py --model_name easyocr # get predictions
 python3 metric.py --model_name easyocr # get mAP and CER scores
 ```
 
+OCR, Charts, Diagrams, and PDF-to-Markdown evaluations are coming soon ...
+
 If you're using KITAB-Bench in your research or applications, please cite using this BibTeX:
 ```bibtex
   @misc{heakl2025kitab,
