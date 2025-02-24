@@ -91,10 +91,10 @@ KITAB-Bench evaluates **9 key OCR and document processing tasks**:
 
 1️⃣ [**Text Recognition (OCR)**](#large-vision-language-models-on-kitab-bench) - Printed & handwritten Arabic OCR.  
 2️⃣ [**Layout Detection**](#layout-detection) - Extracting text blocks, tables, figures, etc.  
-3️⃣ [**Line Detection**](#lines-detection--recognition) - Identifying & recognizing individual Arabic text lines.  
-4️⃣ [**Line Recognition**](#lines-detection--recognition) - Recognizing individual Arabic text lines accurately.  
-5️⃣ [**Table Recognition**](#table-detection) - Parsing structured tables into machine-readable formats.  
-6️⃣ [**PDF-to-Markdown**](#table-detection) - Converting Arabic PDFs into structured Markdown format.  
+3️⃣ [**Line Detection**](#lines-detection-&-recognition) - Identifying & recognizing individual Arabic text lines.  
+4️⃣ [**Line Recognition**](#lines-detection-and-recognition) - Recognizing individual Arabic text lines accurately.  
+5️⃣ [**Table Recognition**](#table-detection-and-pdf-to-markdown) - Parsing structured tables into machine-readable formats.  
+6️⃣ [**PDF-to-Markdown**](#table-detection-and-pdf-to-markdown) - Converting Arabic PDFs into structured Markdown format.  
 7️⃣ [**Charts-to-DataFrame**](#chart-and-diagram-vqa) - Extracting **21 types of charts** into structured datasets.  
 8️⃣ [**Diagram-to-JSON**](#chart-and-diagram-vqa) - Extracting **flowcharts, Venn diagrams, networks into JSON.**  
 9️⃣ [**Visual Question Answering (VQA)**](#chart-and-diagram-vqa) - Understanding questions about Arabic documents.  
@@ -139,12 +139,12 @@ To accurately assess OCR models, KITAB-Bench introduces **new Arabic OCR evaluat
 <img src="static/images/layputdet.png" alt="Alt text" width="80%" height="80%">
 </p>
 
-### **Line Detection & Recognition**
+### **Line Detection and Recognition**
 <p align="center">
 <img src="static/images/line.png" alt="Alt text" width="80%" height="80%">
 </p>
 
-### **Table Recognition & PDF-to-Markdown**
+### **Table Recognition and PDF to Markdown**
 <p align="center">
 <img src="static/images/table.png" alt="Alt text" width="80%" height="80%">
 </p>
