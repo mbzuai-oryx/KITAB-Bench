@@ -15,7 +15,7 @@
 <br>
 <em> <sup> *Equal Contribution  </sup> </em>
 <br>
-  [![arXiv](https://img.shields.io/badge/arXiv-2502.0094-3399FF)](https://arxiv.org/abs/2502.00094)
+  [![arXiv](https://img.shields.io/badge/arXiv-2502.14949-3399FF)](https://arxiv.org/abs/2502.14949)
   [![Our Page](https://img.shields.io/badge/Visit-Our%20Page-8C7AFF?style=flat)](https://mbzuai-oryx.github.io/KITAB-Bench/)
   [![GitHub issues](https://img.shields.io/github/issues/mbzuai-oryx/KITAB-Bench?color=FFF359&label=issues&style=flat)](https://github.com/mbzuai-oryx/KITAB-Bench/issues)
   [![GitHub stars](https://img.shields.io/github/stars/mbzuai-oryx/KITAB-Bench?color=FF6A07&style=flat)](https://github.com/mbzuai-oryx/KITAB-Bench/stargazers)
@@ -131,3 +131,15 @@ python yolo_doc_doclayout.py
 python evaluate_all.py
 ```
 
+If you're using KITAB-Bench in your research or applications, please cite using this BibTeX:
+```bibtex
+  @misc{heakl2025kitabbenchcomprehensivemultidomainbenchmark,
+        title={KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding}, 
+        author={Ahmed Heakl and Abdullah Sohail and Mukul Ranjan and Rania Hossam and Ghazi Ahmed and Mohamed El-Geish and Omar Maher and Zhiqiang Shen and Fahad Khan and Salman Khan},
+        year={2025},
+        eprint={2502.14949},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2502.14949}, 
+  }
+```
