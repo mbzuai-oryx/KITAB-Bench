@@ -91,10 +91,10 @@ KITAB-Bench evaluates **9 key OCR and document processing tasks**:
 
 1️⃣ [**Text Recognition (OCR)**](#large-vision-language-models-on-kitab-bench) - Printed & handwritten Arabic OCR.  
 2️⃣ [**Layout Detection**](#layout-detection) - Extracting text blocks, tables, figures, etc.  
-3️⃣ [**Line Detection**](#line-detection-&-recognition) - Identifying & recognizing individual Arabic text lines.  
+3️⃣ [**Line Detection**](#line-detection-and-recognition) - Identifying & recognizing individual Arabic text lines.  
 4️⃣ [**Line Recognition**](#line-detection-and-recognition) - Recognizing individual Arabic text lines accurately.  
-5️⃣ [**Table Recognition**](#table-detection-and-pdf-to-markdown) - Parsing structured tables into machine-readable formats.  
-6️⃣ [**PDF-to-Markdown**](#table-detection-and-pdf-to-markdown) - Converting Arabic PDFs into structured Markdown format.  
+5️⃣ [**Table Recognition**](#table-recognition-and-pdf-to-markdown) - Parsing structured tables into machine-readable formats.  
+6️⃣ [**PDF-to-Markdown**](#table-recognition-and-pdf-to-markdown) - Converting Arabic PDFs into structured Markdown format.  
 7️⃣ [**Charts-to-DataFrame**](#chart-and-diagram-vqa) - Extracting **21 types of charts** into structured datasets.  
 8️⃣ [**Diagram-to-JSON**](#chart-and-diagram-vqa) - Extracting **flowcharts, Venn diagrams, networks into JSON.**  
 9️⃣ [**Visual Question Answering (VQA)**](#chart-and-diagram-vqa) - Understanding questions about Arabic documents.  
