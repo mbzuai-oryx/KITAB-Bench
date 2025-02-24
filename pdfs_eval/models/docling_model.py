@@ -12,14 +12,16 @@ def remove_tables(md_text: str) -> str:
     return cleaned_text.strip()
 
 class DoclingPDF:
-    def __init__(self):
-        # ocr_options = EasyOcrOptions(
-        #     use_gpu=True,
-        #     lang=['ar'],
-        # )
-        ocr_options = TesseractCliOcrOptions(
-            lang=['ara'],
-        )
+    def __init__(self, **kwargs):
+        if kwargs.get("model_type", "easyocr") == "easyocr":
+            ocr_options = EasyOcrOptions(
+                use_gpu=True,
+                lang=['ar'],
+            )
+        else:
+            ocr_options = TesseractCliOcrOptions(
+                lang=['ara'],
+            )
         table_structure_options = TableStructureOptions(do_cell_matching=True, model="accurate")
         pipeline_options = PdfPipelineOptions(
             do_ocr=True,               
@@ -36,7 +38,7 @@ class DoclingPDF:
             format_options={"pdf": format_option}
         )
 
-    def __call__(self, source: str):
+    def __call__(self, _, source: str):
         result = self.converter.convert(source)
         text = remove_tables(str(result.document.export_to_markdown(image_placeholder="")))
         tables = [item.export_to_html() for item, level in result.document.iterate_items() if isinstance(item, TableItem)]

@@ -1,0 +1,2 @@
+DEFAULT_PROMPT = """Extract the text from the document in Markdown format, and extract the tables in HTML format. 
+Do not add style or anything, just the text. Do not ever generate tables in markdown format. Give me the output, nothing else."""

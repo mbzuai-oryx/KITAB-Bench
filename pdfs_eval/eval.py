@@ -1,120 +1,67 @@
-import re
-from metric import TEDS
-from bs4 import BeautifulSoup
-import json
+from argparse import ArgumentParser
+from glob import glob 
+import os
 from tqdm import tqdm
-from sacrebleu import corpus_chrf
+import json
+
+import datasets
+from PIL import Image
+import re
+
+from models import GeminiOCR, DoclingPDF, MarkerPDF, GPT4oOCR, AVAILABLE_MODELS
+from prompts import DEFAULT_PROMPT
+
+RESULTS_DIR = "results"
+MAX_TOKENS = 2048
+os.makedirs(RESULTS_DIR, exist_ok=True)
 
 
-def flatten_table(html):
-    soup = BeautifulSoup(html, 'html.parser')
-    new_table = soup.new_tag('table')
-    new_tbody = soup.new_tag('tbody')
-    new_table.append(new_tbody)
-    thead = soup.find('thead')
-    if thead:
-        for row in thead.find_all('tr'):
-            new_tbody.append(row)
-        thead.extract()
-    tbody = soup.find('tbody')
-    if tbody:
-        for row in tbody.find_all('tr'):
-            new_tbody.append(row)
-        tbody.extract()
-    tfoot = soup.find('tfoot')
-    if tfoot:
-        for row in tfoot.find_all('tr'):
-            new_tbody.append(row)
-        tfoot.extract()
-    table = soup.find('table')
-    if table:
-        for row in table.find_all('tr'):
-            new_tbody.append(row)
-        table.extract()
-    return str(new_table.prettify())
+def extract_html_tables_from_file(markdown_file_path: str):
+    with open(markdown_file_path, 'r', encoding='utf-8') as file:
+        markdown_text = file.read()
+    table_regex = re.compile(r'<table[\s\S]*?</table>', re.IGNORECASE)
+    tables = table_regex.findall(markdown_text)
+    text_without_tables = table_regex.sub('', markdown_text)
+    return text_without_tables, tables
 
-def arabic_to_english_numerals(input_str):
-    arabic_numerals = '٠١٢٣٤٥٦٧٨٩'  # Arabic-Indic digits
-    english_numerals = '0123456789'  # Western Arabic digits
-    translation_table = str.maketrans(arabic_numerals, english_numerals)
-    return input_str.translate(translation_table)
+def get_model(model_name: str, flash_attn: bool):
+    if model_name == "gemini":
+        return GeminiOCR()
+    if model_name == "doclingeasyocr":
+        return DoclingPDF(model_type="easyocr")
+    if model_name == "doclingtesseract":
+        return DoclingPDF(model_type="tesseract")
+    if model_name == "marker":
+        return MarkerPDF()
+    if model_name == "gpt-4o":
+        return GPT4oOCR(max_tokens=MAX_TOKENS, model_name="gpt-4")
+    if model_name == "gpt-4o-mini":
+        return GPT4oOCR(max_tokens=MAX_TOKENS, model_name="gpt-4o-mini")
+    if model_name == "qwen2vl":
+        return Qwen2VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2-VL-7B-Instruct", use_flash_attn=flash_attn)
+    if model_name == "qwen25vl":
+        return Qwen25VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2.5-VL-7B-Instruct", use_flash_attn=flash_attn)
+    raise ValueError(f"Model {model_name} not found")
 
-def clean_html_tags(table_html):
-    allowed_tags = {"table", "tr", "th", "tbody", "td"}
-    soup = BeautifulSoup(table_html, "html.parser")
-    for tag in soup.find_all():
-        if tag.name not in allowed_tags:
-            tag.unwrap()  # Replace the tag with its contents
-    return str(soup)
+def main(args):
+    output_path = f"{RESULTS_DIR}/{args.model_name}.json"
+    files = glob(f"pdfs/*.pdf")
+    data = []
+    model = get_model(args.model_name, args.flash_attn)
+    for idx, file_path in tqdm(enumerate(files), total=len(files), desc="Evaluating PDFs"):
+        label_path = file_path.replace(".pdf", ".md").replace("pdfs/", "labels/")
+        gt_text, gt_tables = extract_html_tables_from_file(label_path)
+        pred_text, pred_tables = model(DEFAULT_PROMPT, file_path)
+        gt = {"text": gt_text, "tables": gt_tables}
+        pred = {"text": pred_text, "tables": pred_tables}
+        data.append({"idx": idx, "gt": gt, "pred": pred})
 
+    with open(output_path, "w") as f:
+        json.dump(data, f, indent=4, ensure_ascii=False)
 
-def aug_html(s: str):
-    s = s.replace('dir=\"<built-in function dir>\"', "")
-    s = s.replace("border=\"1\"", "")
-    s = re.sub(r"\s+", ' ', s)
-    s = arabic_to_english_numerals(s)
-    s = flatten_table(s)
-    s = clean_html_tags(s)
-    return f"<html>\n<body>\n{s}\n</body></html>"
-
-def avg(l):
-    if len(l) == 0: return None
-    return sum(l) / len(l)
-
-def preprocess_arabic_text(text: str) -> str:
-    # Remove newlines
-    text = text.replace("<image>", "")
-    text = text.replace("\n", " ")
-    text = text.replace("\t", " ")
-    # Remove diacritics (tashkeel)
-    text = re.sub(r'[\u064B-\u065F\u0670]', '', text)
-    # Normalize alef variants to bare alef
-    text = re.sub('[إأٱآا]', 'ا', text)
-    # Normalize teh marbuta to heh
-    text = text.replace('ة', 'ه')
-    # Normalize alef maksura to yeh
-    text = text.replace('ى', 'ي')
-    # This regex matches one or more tatweel characters (ـ) or any whitespace sequence.
-    # The lambda replaces whitespace sequences with a single space,
-    # and removes tatweel characters by replacing them with an empty string.
-    text = re.sub(r'(ـ+)|\s+', lambda m: ' ' if m.group(0).isspace() else '', text).strip()
-    text = ' '.join(text.split())
-    return text
-
-if __name__ == '__main__':
-    model_name = "qwen2vl"
-    with open(f'results/{model_name}.json') as fp:
-        data = json.load(fp)
-    teds = TEDS(n_jobs=32)
-    all_scores = []
-    pred_texts = []
-    gt_texts = []
-    for sample in tqdm(data):
-        pred_texts.append(preprocess_arabic_text(sample['pred']['text']))
-        gt_texts.append(preprocess_arabic_text(sample['gt']['text']))
-        gt_tables = sample['gt']['tables']
-        pred_tables = sample['pred']['tables']
-        true_json = []
-        pred_json = []
-        samples_idx = []
-        max_scores = {str(gt_idx): 0 for gt_idx in range(len(gt_tables))}
-        for gt_idx, gt_table in enumerate(gt_tables):
-            for pred_idx, pred_table in enumerate(pred_tables):
-                idx = f"{gt_idx}.{pred_idx}"
-                samples_idx.append(idx)
-                true_json.append(aug_html(preprocess_arabic_text(gt_table)))
-                pred_json.append(aug_html(preprocess_arabic_text(pred_table)))
-        scores = teds.batch_evaluate(pred_json, true_json, samples_idx)
-        for k, score in scores.items():
-            gt_idx = k.split(".")[0]
-            max_scores[gt_idx] = max(max_scores[gt_idx], score)
-        avg_score = avg(list(max_scores.values()))
-        if avg_score is not None:
-            all_scores.append(avg_score)
-        
-    chrf = corpus_chrf(pred_texts, [gt_texts]).score
-    tables_average = avg(all_scores) * 100
-    all_average = (chrf + tables_average) / 2
-    print(f"Text Average: {chrf:.2f}")
-    print(f"Tables Average: {tables_average:.2f}")
-    print(f"All Average: {all_average:.2f}")
+if __name__ == "__main__":
+    parser = ArgumentParser()
+    parser.add_argument("--model_name", type=str, default="gemini", choices=AVAILABLE_MODELS)
+    parser.add_argument("--flash_attn", default=False, action="store_true")
+    args = parser.parse_args()
+    main(args)

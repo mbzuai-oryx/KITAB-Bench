@@ -32,7 +32,7 @@ class MarkerPDF:
             renderer=md_config.get_renderer(),
         )
     
-    def __call__(self, source: str):
+    def __call__(self, _, source: str):
         md_code = self.md_converter(source).markdown
         text = remove_tables(str(md_code))
         html_code = self.html_converter(source).html
