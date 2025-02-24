@@ -56,7 +56,7 @@ KITAB-Bench covers a **wide range of document types**:
 
 ---
 ## **Domains**
-![Alt text](static/images/taxonomy.png)
+<img src="static/images/taxonomy.png" alt="Alt text" width="50%" height="50%">
 
 ## **Benchmark Tasks**
 KITAB-Bench evaluates **9 key OCR and document processing tasks**:
@@ -90,6 +90,14 @@ To accurately assess OCR models, KITAB-Bench introduces **new Arabic OCR evaluat
 ---
 
 ## **Performance Results**
+
+# **Layout Detection**
+### **Layout Detection**
+<img src="static/images/layputdet.png" alt="Alt text" width="50%" height="50%">
+<img src="static/images/table.png" alt="Alt text" width="50%" height="50%">
+<img src="static/images/VQA.png" alt="Alt text" width="50%" height="50%">
+<img src="static/images/whole.png" alt="Alt text" width="50%" height="50%">
+
 Our benchmark results demonstrate **significant performance gaps** between different OCR systems:
 
 | **Model** | **OCR Accuracy (CER%)** | **Table Recognition (TEDS%)** | **Charts-to-Data (SCRM%)** |
