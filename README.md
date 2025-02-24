@@ -151,7 +151,7 @@ python3 metrics.py --model_name qwen2_vl # get TEDS and Jaccord index accuracy
 
 If you're using KITAB-Bench in your research or applications, please cite using this BibTeX:
 ```bibtex
-  @misc{heakl2025kitabbenchcomprehensivemultidomainbenchmark,
+  @misc{heakl2025kitab,
         title={KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding}, 
         author={Ahmed Heakl and Abdullah Sohail and Mukul Ranjan and Rania Hossam and Ghazi Ahmed and Mohamed El-Geish and Omar Maher and Zhiqiang Shen and Fahad Khan and Salman Khan},
         year={2025},
