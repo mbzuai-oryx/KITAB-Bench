@@ -56,8 +56,9 @@ KITAB-Bench covers a **wide range of document types**:
 
 ---
 ## **Domains**
+<p align="center">
 <img src="static/images/taxonomy.png" alt="Alt text" width="50%" height="50%">
-
+</p>
 ## **Benchmark Tasks**
 KITAB-Bench evaluates **9 key OCR and document processing tasks**:
 
@@ -72,6 +73,15 @@ KITAB-Bench evaluates **9 key OCR and document processing tasks**:
 9️⃣ **Semantic Reasoning** - Analyzing **complex text layouts, diagrams, and mixed formats.**  
 
 ---
+### **Task Examples**
+<p align="center">
+<img src="static/images/tasks.png" alt="Alt text" width="50%" height="50%">
+</p>
+
+### **Data Generation pipeline**
+<p align="center">
+<img src="static/images/pipeline_1.png" alt="Alt text" width="50%" height="50%">
+</p>
 
 ## **Evaluation Metrics**
 To accurately assess OCR models, KITAB-Bench introduces **new Arabic OCR evaluation metrics**:
@@ -91,12 +101,22 @@ To accurately assess OCR models, KITAB-Bench introduces **new Arabic OCR evaluat
 
 ## **Performance Results**
 
-# **Layout Detection**
 ### **Layout Detection**
+<p align="center">
 <img src="static/images/layputdet.png" alt="Alt text" width="50%" height="50%">
+</p>
+### **Table Detection**
+<p align="center">
 <img src="static/images/table.png" alt="Alt text" width="50%" height="50%">
+</p>
+### **Chart and Diagram VQA**
+<p align="center">
 <img src="static/images/VQA.png" alt="Alt text" width="50%" height="50%">
+</p>
+### **Large Vision-Language Models on KITAB-Bench**
+<p align="center">
 <img src="static/images/whole.png" alt="Alt text" width="50%" height="50%">
+</p>
 
 Our benchmark results demonstrate **significant performance gaps** between different OCR systems:
 
