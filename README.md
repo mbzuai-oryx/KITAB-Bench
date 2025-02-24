@@ -132,14 +132,22 @@ python evaluate_all.py
 ```
 
 ### **3️⃣ VQA Evaluation**
+Available models are Gemini-2.0-Flash, InternVL-2.5, GPT-4o, GPT-4o-mini, Qwen2-VL, and Qwen2.5-VL.
 ```bash
 cd vqa-eval
 pip3 install -r requirements.txt
 python3 eval.py --model_name qwen2_vl # get predictions
-python3 metrics.py --model_name qwen2_vl # get accuracy
+python3 metrics.py --model_name qwen2_vl # get exact match accuracy
 ```
 
-
+### **4️⃣ Tables Evaluation**
+Available models are Docling (Tesseract, EasyOCR), Gemini-2.0-Flash, Img2Table (EasyOCR, Tesseract), Marker, GPT-4o, GPT-4o-mini, Qwen2-VL, and Qwen2.5-VL.
+```bash
+cd tables-eval
+pip3 install -r requirements.txt
+python3 eval.py --model_name qwen2_vl # get predictions
+python3 metrics.py --model_name qwen2_vl # get TEDS and Jaccord index accuracy
+```
 
 If you're using KITAB-Bench in your research or applications, please cite using this BibTeX:
 ```bibtex
