@@ -191,7 +191,16 @@ python3 eval.py --model_name easyocr # get predictions
 python3 metric.py --model_name easyocr # get mAP and CER scores
 ```
 
-OCR, Charts, Diagrams, and PDF-to-Markdown evaluations are coming soon ...
+### **6️⃣ OCR Evaluation**
+Available models are EasyOCR, Surya, Tesseract.
+```bash
+cd ocr-eval
+pip3 install -r requirements.txt
+python3 eval.py --model_name easyocr # get predictions
+python3 metrics.py --model_name easyocr # get CER, WER, BLEU, chrF, and METEOR scores
+```
+
+Charts, Diagrams, and PDF-to-Markdown evaluations are coming soon ...
 
 If you're using KITAB-Bench in your research or applications, please cite using this BibTeX:
 ```bibtex
