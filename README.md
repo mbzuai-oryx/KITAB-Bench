@@ -105,14 +105,17 @@ To accurately assess OCR models, KITAB-Bench introduces **new Arabic OCR evaluat
 <p align="center">
 <img src="static/images/layputdet.png" alt="Alt text" width="50%" height="50%">
 </p>
+
 ### **Table Detection**
 <p align="center">
 <img src="static/images/table.png" alt="Alt text" width="50%" height="50%">
 </p>
+
 ### **Chart and Diagram VQA**
 <p align="center">
 <img src="static/images/VQA.png" alt="Alt text" width="50%" height="50%">
 </p>
+
 ### **Large Vision-Language Models on KITAB-Bench**
 <p align="center">
 <img src="static/images/whole.png" alt="Alt text" width="50%" height="50%">
