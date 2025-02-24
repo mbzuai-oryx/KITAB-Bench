@@ -131,7 +131,7 @@ To accurately assess OCR models, KITAB-Bench introduces **new Arabic OCR evaluat
 
 ### **Text Recognition (OCR)**
 <p align="center">
-<img src="static/images/ocr.png" alt="Alt text" width="80%" height="80%">
+<img src="static/images/ocr.png" alt="Alt text" width="60%" height="60%">
 </p>
 
 ### **Layout Detection**
