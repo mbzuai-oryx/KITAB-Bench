@@ -204,6 +204,7 @@ python evaluate_all.py
 
 ### **3️⃣ VQA Evaluation**
 Available models are Gemini-2.0-Flash, InternVL-2.5, GPT-4o, GPT-4o-mini, Qwen2-VL, and Qwen2.5-VL.
+
 ```bash
 cd vqa-eval
 pip3 install -r requirements.txt
@@ -246,6 +247,10 @@ pip3 install -r requirements.txt
 python3 eval.py --model_name doclingeasyocr # get predictions
 python3 metrics.py --model_name doclingeasyocr # get MARS (markdown recognition score)
 ```
+
+> If you are using GPT-4o or GPT-4o-mini, please put an environment variable `export OPENAI_API_KEY=<your-api-key>`
+
+> If you are using Gemini, please put an environment variable `export GEMINI_API_KEY=<your-api-key>`
 
 Charts and Diagrams evaluations are coming soon ...
 
