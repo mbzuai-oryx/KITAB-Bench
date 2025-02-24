@@ -89,15 +89,16 @@ KITAB-Bench covers a **wide range of document types**:
 ## **Benchmark Tasks**
 KITAB-Bench evaluates **9 key OCR and document processing tasks**:
 
-1️⃣ [**Text Recognition (OCR)**](#text-recognition-(ocr)) - Printed & handwritten Arabic OCR.  
+1️⃣ [**Text Recognition (OCR)**](#large-vision-language-models-on-kitab-bench) - Printed & handwritten Arabic OCR.  
 2️⃣ [**Layout Detection**](#layout-detection) - Extracting text blocks, tables, figures, etc.  
-3️⃣ [**Line Detection**](#lines-detection--recognition) - Identifying & recognizing individual Arabic text lines.  
-4️⃣ [**Line Recognition**](#lines-detection--recognition) - Identifying & recognizing individual Arabic text lines.  
+3️⃣ [**Line Detection**](#lines-detection--recognition-evaluation) - Identifying & recognizing individual Arabic text lines.  
+4️⃣ [**Line Recognition**](#lines-detection--recognition-evaluation) - Recognizing individual Arabic text lines accurately.  
 5️⃣ [**Table Recognition**](#table-detection) - Parsing structured tables into machine-readable formats.  
 6️⃣ [**PDF-to-Markdown**](#table-detection) - Converting Arabic PDFs into structured Markdown format.  
-7️⃣ [**Charts-to-DataFrame**](#vqa) - Extracting **21 types of charts** into structured datasets.  
-8️⃣ [**Diagram-to-JSON**](#vqa) - Extracting **flowcharts, Venn diagrams, networks into JSON.**  
-9️⃣ [**Visual Question Answering (VQA)**](#vqa) - Understanding questions about Arabic documents.  
+7️⃣ [**Charts-to-DataFrame**](#chart-and-diagram-vqa) - Extracting **21 types of charts** into structured datasets.  
+8️⃣ [**Diagram-to-JSON**](#chart-and-diagram-vqa) - Extracting **flowcharts, Venn diagrams, networks into JSON.**  
+9️⃣ [**Visual Question Answering (VQA)**](#chart-and-diagram-vqa) - Understanding questions about Arabic documents.  
+  
 
 ---
 ### **Task Examples**
