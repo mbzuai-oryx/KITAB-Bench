@@ -149,6 +149,15 @@ python3 eval.py --model_name qwen2_vl # get predictions
 python3 metrics.py --model_name qwen2_vl # get TEDS and Jaccord index accuracy
 ```
 
+### **5️⃣ Lines Detection & Recognition Evaluation**
+Available models are EasyOCR, Surya, Tesseract.
+```bash
+cd lines-eval
+pip3 install -r requirements.txt
+python3 eval.py --model_name easyocr # get predictions
+python3 metric.py --model_name easyocr # get mAP and CER scores
+```
+
 If you're using KITAB-Bench in your research or applications, please cite using this BibTeX:
 ```bibtex
   @misc{heakl2025kitab,
