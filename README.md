@@ -21,20 +21,29 @@
   [![GitHub stars](https://img.shields.io/github/stars/mbzuai-oryx/KITAB-Bench?color=FF6A07&style=flat)](https://github.com/mbzuai-oryx/KITAB-Bench/stargazers)
   [![GitHub license](https://img.shields.io/github/license/mbzuai-oryx/KITAB-Bench?color=FF6666)](https://github.com/mbzuai-oryx/KITAB-Bench/blob/main/LICENSE)
   <br>
-## **Overview**
-With the increasing adoption of **Retrieval-Augmented Generation (RAG)** in document processing, robust Arabic **Optical Character Recognition (OCR)** is essential for knowledge extraction. Arabic OCR presents unique challenges due to:
-- **Cursive script** and **right-to-left text flow**.
-- **Complex typographic** and **calligraphic** variations.
-- **Tables, charts, and diagram-heavy documents**.
+  
+## 📖 **Overview**  
+With the increasing adoption of **⚡ Retrieval-Augmented Generation (RAG)** in document processing, robust Arabic **🔍 Optical Character Recognition (OCR)** is essential for knowledge extraction. Arabic OCR presents unique challenges due to:  
 
-We introduce **KITAB-Bench**, a **comprehensive Arabic OCR benchmark** that evaluates the performance of **traditional OCR, vision-language models (VLMs), and specialized AI systems**.
+- ✍️ **Cursive script** and **right-to-left text flow**.  
+- 🖋️ **Complex typographic** and **calligraphic** variations.  
+- 📊 **Tables, charts, and diagram-heavy documents**.  
 
-### **Key Highlights**
-✅ **9 major domains & 36 sub-domains** across **8,809** samples.  
-✅ **Diverse document types**: PDFs, handwritten text, structured tables, financial & legal reports.  
-✅ **Strong baselines**: Benchmarked against **Tesseract, GPT-4o, Gemini, Qwen**, and more.  
-✅ **Evaluation across OCR, layout detection, table recognition, chart extraction, & PDF conversion.**  
-✅ **Novel evaluation metrics**: Markdown Recognition (MARS), Table Edit Distance (TEDS), Chart Data Extraction (SCRM).  
+We introduce **📚 KITAB-Bench**, a **comprehensive Arabic OCR benchmark** that evaluates the performance of **🤖 traditional OCR, vision-language models (VLMs), and specialized AI systems**.  
+
+---
+
+### 🌟 **Key Highlights**  
+✅ **9️⃣ major domains & 36️⃣ sub-domains** across **📄 8,809 samples**.  
+✅ **📜 Diverse document types**: PDFs, ✍️ handwritten text, 🏦 structured tables, ⚖️ financial & legal reports.  
+✅ **📊 Strong baselines**: Benchmarked against **🧐 Tesseract, 🤖 GPT-4o, 🔥 Gemini, 🦾 Qwen**, and more.  
+✅ **🔎 Evaluation across OCR, 🗂️ layout detection, 📑 table recognition, 📈 chart extraction, & 📂 PDF conversion.**  
+✅ **📏 Novel evaluation metrics**: 🏅 **Markdown Recognition (MARS)**, 🏆 **Table Edit Distance (TEDS)**, 📊 **Chart Data Extraction (SCRM)**.  
+
+---
+
+🚀 **KITAB-Bench sets a new standard for Arabic OCR evaluation, enabling more accurate, efficient, and intelligent document understanding!** 📖✨
+
 
 ---
 
@@ -105,22 +114,22 @@ To accurately assess OCR models, KITAB-Bench introduces **new Arabic OCR evaluat
 
 ### **Layout Detection**
 <p align="center">
-<img src="static/images/layputdet.png" alt="Alt text" width="70%" height="70%">
+<img src="static/images/layputdet.png" alt="Alt text" width="80%" height="80%">
 </p>
 
 ### **Table Detection**
 <p align="center">
-<img src="static/images/table.png" alt="Alt text" width="70%" height="70%">
+<img src="static/images/table.png" alt="Alt text" width="80%" height="80%">
 </p>
 
 ### **Chart and Diagram VQA**
 <p align="center">
-<img src="static/images/VQA.png" alt="Alt text" width="70%" height="70%">
+<img src="static/images/VQA.png" alt="Alt text" width="80%" height="80%">
 </p>
 
 ### **Large Vision-Language Models on KITAB-Bench**
 <p align="center">
-<img src="static/images/whole.png" alt="Alt text" width="70%" height="70%">
+<img src="static/images/whole.png" alt="Alt text" width="80%" height="80%">
 </p>
 
 Our benchmark results demonstrate **significant performance gaps** between different OCR systems:
