@@ -55,6 +55,8 @@ KITAB-Bench covers a **wide range of document types**:
 📌 **High-quality human-labeled annotations** for fair evaluation.
 
 ---
+## **Domains**
+![Alt text](static/images/taxonomy.png)
 
 ## **Benchmark Tasks**
 KITAB-Bench evaluates **9 key OCR and document processing tasks**:
