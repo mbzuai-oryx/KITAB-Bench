@@ -131,6 +131,16 @@ python yolo_doc_doclayout.py
 python evaluate_all.py
 ```
 
+### **3️⃣ VQA Evaluation**
+```bash
+cd vqa-eval
+pip3 install -r requirements.txt
+python3 eval.py --model_name qwen2_vl # get predictions
+python3 metrics.py --model_name qwen2_vl # get accuracy
+```
+
+
+
 If you're using KITAB-Bench in your research or applications, please cite using this BibTeX:
 ```bibtex
   @misc{heakl2025kitabbenchcomprehensivemultidomainbenchmark,
