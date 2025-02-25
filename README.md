@@ -199,7 +199,7 @@ python test_surya_doclaynet.py
 python yolo_doc_doclayout.py
 
 # Evaluate all models at once
-python evaluate_all.py
+python main.py
 ```
 
 ### **3️⃣ VQA Evaluation**
