@@ -6,11 +6,7 @@ import datasets
 from models import EasyOCR, SuryaOCR, TesseractOCR
 
 RESULTS_DIR = "results"
-NUM_WORKERS = 2
 os.makedirs(RESULTS_DIR, exist_ok=True)
-
-model_name = "easyocr"
-output_path = f"{RESULTS_DIR}/{model_name}.json"
 ds = datasets.load_dataset("ahmedheakl/arocrbench_ourslines", split="train")
 data = []
 
@@ -26,6 +22,7 @@ def get_model(model_name):
 
 def main(args):
     ocr_model = get_model(args.model_name)
+    output_path = f"{RESULTS_DIR}/{args.model_name}.json"
     for idx, sample in tqdm(enumerate(ds), total=len(ds), desc=f"Evaluating lines"):
         img = sample['image']
         try:

@@ -248,11 +248,19 @@ python3 eval.py --model_name doclingeasyocr # get predictions
 python3 metrics.py --model_name doclingeasyocr # get MARS (markdown recognition score)
 ```
 
+### **8️⃣ Charts Evaluation**
+Available models are Gemini-2.0-Flash, GPT-4o, GPT-4o-mini, Qwen2-VL and Qwen2.5-VL. 
+```bash
+cd charts-eval
+python3 eval.py --model_name qwen2vl # get predictions
+python3 metrics.py --model_name qwen2vl # get SCRM and ChartEx scores
+```
+
 > If you are using GPT-4o or GPT-4o-mini, please put an environment variable `export OPENAI_API_KEY=<your-api-key>`
 
 > If you are using Gemini, please put an environment variable `export GEMINI_API_KEY=<your-api-key>`
 
-Charts and Diagrams evaluations are coming soon ...
+Diagrams evaluations are coming soon ...
 
 If you're using KITAB-Bench in your research or applications, please cite using this BibTeX:
 ```bibtex
