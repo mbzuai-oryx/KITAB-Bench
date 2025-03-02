@@ -1,10 +1,9 @@
 from PIL import Image
-from surya.recognition import RecognitionPredictor
-from surya.detection import DetectionPredictor
-
 
 class SuryaOCR:
     def __init__(self, max_tokens=2000):
+        from surya.recognition import RecognitionPredictor
+        from surya.detection import DetectionPredictor
         self.max_tokens = max_tokens
         self.recognition_predictor = RecognitionPredictor()
         self.detection_predictor = DetectionPredictor()

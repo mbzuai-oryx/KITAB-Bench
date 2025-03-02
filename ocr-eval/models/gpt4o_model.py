@@ -1,13 +1,13 @@
 import base64
 import io
 from PIL import Image
-from openai import OpenAI
 
 
 class GPT4oOCR:
     def __init__(self, **kwargs):
-        self.max_tokens = kwargs["max_tokens"]
-        self.model_name = kwargs["model_name"]
+        from openai import OpenAI
+        self.max_tokens = kwargs.get("max_tokens", 2000)
+        self.model_name = kwargs.get("model_name", "gpt-4o-mini")
 
     def _enc(self, image_bytes: bytes) -> str:
         return base64.b64encode(image_bytes).decode("utf-8")

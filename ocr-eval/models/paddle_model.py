@@ -1,11 +1,11 @@
 from PIL import Image
 import os
-from paddleocr import PaddleOCR
 import multiprocessing as mp
 
 
 class PaddleGPUOCR:
     def __init__(self, max_tokens=2000):
+        from paddleocr import PaddleOCR
         self.max_tokens = max_tokens
         self.tmp = f"{os.getcwd()}/paddletmp"
         self.ocr = PaddleOCR(use_angle_cls=False, lang='ar', use_gpu=True, show_log=False)

@@ -1,12 +1,13 @@
 import os
 from PIL import Image
-from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
-from qwen_vl_utils import process_vision_info
-import torch
+
 
 
 class Qwen2VLOCR:
     def __init__(self, model_name: str="Qwen/Qwen2-VL-7B-Instruct", max_tokens: int=2000, use_flash_attn: bool=False):
+        from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
+        from qwen_vl_utils import process_vision_info
+        import torch
         if use_flash_attn:
             self.model = Qwen2VLForConditionalGeneration.from_pretrained(
                 model_name,

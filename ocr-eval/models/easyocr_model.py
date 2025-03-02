@@ -1,11 +1,11 @@
 from PIL import Image
 import os
-import easyocr
 import multiprocessing as mp
 
 
 class EasyOCR:
     def __init__(self, max_tokens=2000):
+        import easyocr
         self.max_tokens = max_tokens
         self.tmp = f"{os.getcwd()}/easyocrtmp"
         self.reader = easyocr.Reader(['ar', 'en'])
