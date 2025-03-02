@@ -1,7 +1,7 @@
-import easyocr
 
 class EasyOCR:
     def __init__(self):
+        import easyocr
         self.reader = easyocr.Reader(['ar','en'])
 
     def _data(self, d):

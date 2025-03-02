@@ -1,7 +1,7 @@
-import pytesseract
 
 class TesseractOCR:
     def __call__(self, img):
+        import pytesseract
         w, h = img.size
         pred = pytesseract.image_to_data(img, lang='ara', output_type="dict")
         data =  []

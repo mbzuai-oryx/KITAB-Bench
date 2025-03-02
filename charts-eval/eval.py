@@ -11,7 +11,7 @@ from prompts import TYPE_PROMPT, TOPIC_PROMPT, DATA_PROMPT
 RESULTS_DIR = "results"
 MAX_TOKENS = 2000
 os.makedirs(RESULTS_DIR, exist_ok=True)
-ds = datasets.load_dataset("ahmedheakl/arocrbench_charts", split="train[:4]", num_proc=4)
+ds = datasets.load_dataset("ahmedheakl/arocrbench_charts", split="train", num_proc=4)
 
 data = []
 
