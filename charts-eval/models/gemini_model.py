@@ -1,10 +1,10 @@
 from PIL import Image
 import os
-from google import genai
 
 
 class GeminiOCR:
     def __init__(self, max_tokens=2000, model_name="gemini-2.0-flash"):
+        from google import genai
         self.max_tokens = max_tokens
         self.client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
         self.model_name = model_name

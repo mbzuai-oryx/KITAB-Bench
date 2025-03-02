@@ -1,0 +1,13 @@
+editdistance==0.8.1
+RapidFuzz==3.12.1
+scipy==1.15.1
+sacrebleu==2.5.1
+qwen-vl-utils==0.0.10
+accelerate==1.4.0
+google-genai==1.0.0
+torch==2.6.0
+torchvision==0.21.0
+transformers==4.49.0
+datasets==3.2.0
+google-genai>=1.0.0
+openai==1.61.1
