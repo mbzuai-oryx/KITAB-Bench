@@ -5,7 +5,6 @@ from PIL import Image
 
 class GPT4oOCR:
     def __init__(self, **kwargs):
-        from openai import OpenAI
         self.max_tokens = kwargs.get("max_tokens", 2000)
         self.model_name = kwargs.get("model_name", "gpt-4o-mini")
 
@@ -33,6 +32,7 @@ class GPT4oOCR:
         ]
 
     def __call__(self, prompt, image):
+        from openai import OpenAI
         messages = self._get_messages(image, prompt)
         client = OpenAI()
         result = client.chat.completions.create(

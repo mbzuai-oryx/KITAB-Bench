@@ -2,13 +2,12 @@ from argparse import ArgumentParser
 import os
 from tqdm import tqdm
 import json
-import multiprocessing as mp
 import datasets
-from models import EasyOCR, GeminiOCR, PaddleGPUOCR, SuryaOCR, TesseractOCR, GPT4oOCR, Qwen2VLOCR, Qwen25VLOCR, AVAILABLE_MODELS
+from models import EasyOCR, GeminiOCR, PaddleGPUOCR, SuryaOCR, TesseractOCR, GPT4oOCR, Qwen2VLOCR, Qwen25VLOCR, ArabicNougat, SmolDocling, QaariOCR, AzureOCR, AVAILABLE_MODELS
 
 DEFAULT_PROMPT = "Extract the text in the image. Give me the final text, nothing else."
 RESULTS_DIR = "results"
-MAX_TOKENS = 2000
+MAX_TOKENS = 500
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 ds_ids = [
@@ -47,6 +46,18 @@ def get_model(model_name: str, flash_attn: bool):
         return Qwen2VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2-VL-7B-Instruct", use_flash_attn=flash_attn)
     if model_name == "qwen25vl":
         return Qwen25VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2.5-VL-7B-Instruct", use_flash_attn=flash_attn)
+    if model_name == "arabicnougat_small":
+        return ArabicNougat(model_name="MohamedRashad/arabic-small-nougat")
+    if model_name == "arabicnougat_base":
+        return ArabicNougat(model_name="MohamedRashad/arabic-base-nougat")
+    if model_name == "arabicnougat_large":
+        return ArabicNougat(model_name="MohamedRashad/arabic-large-nougat")
+    if model_name == "smoldocling":
+        return SmolDocling()
+    if model_name == "qaari":
+        return QaariOCR(max_tokens=MAX_TOKENS, use_flash_attn=flash_attn)
+    if model_name == "azure": 
+        return AzureOCR()
     raise ValueError(f"Model {model_name} not found")
 
 
@@ -75,6 +86,5 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--model_name", type=str, default="easyocr", choices=AVAILABLE_MODELS)
     parser.add_argument("--flash_attn", default=False, action="store_true")
-    parser.add_argument("--max_image_size", type=int, default=1024)
     args = parser.parse_args()
     main(args)
