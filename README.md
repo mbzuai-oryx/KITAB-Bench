@@ -1,4 +1,4 @@
-# <img src="static/images/kitb.png" width="50" > **KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding**
+# <img src="static/images/kitb.png" width="50" > **KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding [ACL 2025 🔥]**
 ![](https://i.imgur.com/waxVImv.png)
 
 [Ahmed Heakl](https://huggingface.co/ahmedheakl) <sup> * </sup> &nbsp;
