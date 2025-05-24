@@ -11,6 +11,7 @@ from collections import defaultdict
 from torchmetrics.detection.mean_ap import MeanAveragePrecision
 
 from doclayout_yolo import YOLOv10
+from huggingface_hub import hf_hub_download
 from metrics_utils import calculate_detailed_metrics
 
 # BCE label mapping from original code
@@ -99,7 +100,12 @@ ID_TO_LABEL = {v: k for k, v in UNIFIED_LABELS.items()}
 
 class YOLOPredictor:
     def __init__(self, model_path: str, device: str = "cuda:0"):
-        self.model = YOLOv10(model_path)
+        if model_path == None:
+            filepath = hf_hub_download(repo_id="juliozhao/DocLayout-YOLO-DocStructBench", filename="doclayout_yolo_docstructbench_imgsz1024.pt")
+            self.model = YOLOv10(filepath)
+        else:
+            self.model = YOLOv10(model_path)
+
         self.device = device
         self.image_size = 1024
         
@@ -320,17 +326,8 @@ def evaluate_model(model_path: str, use_all_data: bool=False, num_samples: int =
     return metrics
 
 if __name__ == "__main__":
-    MODEL_PATH = "doclaynet_yolo_model_path"  # Default placeholder value
+    MODEL_PATH = None  # Default placeholder value
     
-    if MODEL_PATH == "doclaynet_yolo_model_path":
-        raise ValueError(
-            "ERROR: Model path not provided!\n"
-            "Please provide the path to your trained YOLO DocLayout model.\n"
-            "You can download the pre-trained model by following instructions from "
-            "https://github.com/opendatalab/DocLayout-YOLO"
-        )
-    
-    print("Model Path:", MODEL_PATH)
     try:
         metrics = evaluate_model(MODEL_PATH, use_all_data=True)
         print(f"\nResults:")
