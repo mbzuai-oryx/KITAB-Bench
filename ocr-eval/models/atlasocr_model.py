@@ -40,7 +40,7 @@ class AtlasOCR:
         return inputs
     
     def predict(self,image:Image) -> str:
-        inputs = self.prepare_inputs(image, self.processor)
+        inputs = self.prepare_inputs(image)
         inputs = inputs.to("cuda")
 
         inputs['attention_mask'] = inputs['attention_mask'].to(torch.float32)
