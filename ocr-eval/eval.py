@@ -59,7 +59,7 @@ def get_model(model_name: str, flash_attn: bool):
     if model_name == "azure": 
         return AzureOCR()
     if model_name == "atlasocr":
-        return AtlasOCR()
+        return AtlasOCR(max_tokens=MAX_TOKENS)
     raise ValueError(f"Model {model_name} not found")
 
 
