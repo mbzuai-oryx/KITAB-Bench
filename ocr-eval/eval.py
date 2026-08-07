@@ -3,7 +3,7 @@ import os
 from tqdm import tqdm
 import json
 import datasets
-from models import EasyOCR, GeminiOCR, PaddleGPUOCR, SuryaOCR, TesseractOCR, GPT4oOCR, Qwen2VLOCR, Qwen25VLOCR, ArabicNougat, SmolDocling, QaariOCR, AzureOCR, AVAILABLE_MODELS
+from models import EasyOCR, GeminiOCR, PaddleGPUOCR, SuryaOCR, TesseractOCR, GPT4oOCR, Qwen2VLOCR, Qwen25VLOCR, ArabicNougat, SmolDocling, QaariOCR, AzureOCR, AtlasOCR, AVAILABLE_MODELS
 
 DEFAULT_PROMPT = "Extract the text in the image. Give me the final text, nothing else."
 RESULTS_DIR = "results"
@@ -58,6 +58,8 @@ def get_model(model_name: str, flash_attn: bool):
         return QaariOCR(max_tokens=MAX_TOKENS, use_flash_attn=flash_attn)
     if model_name == "azure": 
         return AzureOCR()
+    if model_name == "atlasocr":
+        return AtlasOCR(max_tokens=MAX_TOKENS)
     raise ValueError(f"Model {model_name} not found")
 
 

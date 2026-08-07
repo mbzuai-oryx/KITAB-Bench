@@ -10,5 +10,6 @@ from .arabicnougat_model import ArabicNougat
 from .smoldocling_model import SmolDocling
 from .qaari_model import QaariOCR
 from .azure_model import AzureOCR
+from .atlasocr_model import AtlasOCR
 
-AVAILABLE_MODELS = ["easyocr", "gemini", "paddle", "surya", "tesseract", "gpt-4o", "gpt-4o-mini", "qwen2vl", "qwen25vl", "arabicnougat_small", "arabicnougat_base", "arabicnougat_large", "smoldocling", "qaari", "azure"]
+AVAILABLE_MODELS = ["easyocr", "gemini", "paddle", "surya", "tesseract", "gpt-4o", "gpt-4o-mini", "qwen2vl", "qwen25vl", "arabicnougat_small", "arabicnougat_base", "arabicnougat_large", "smoldocling", "qaari", "azure","atlasocr"]
