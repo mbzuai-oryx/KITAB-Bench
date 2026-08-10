@@ -158,6 +158,11 @@ def flatten_table(html):
         for row in tfoot.find_all('tr'):
             new_tbody.append(row)
         tfoot.extract()
+    table = soup.find('table')
+    if table:
+        for row in table.find_all('tr'):
+            new_tbody.append(row)
+        table.extract()
     return str(new_table.prettify())
 
 import re
