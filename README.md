@@ -231,10 +231,11 @@ python3 metric.py --model_name easyocr # get mAP and CER scores
 ```
 
 ### **6️⃣ OCR Evaluation**
-Available models are EasyOCR, Surya, Tesseract, Gemini-2.0-Flash, GPT-4o, GPT-4o-mini, Qwen2-VL, Qwen2.5-VL, AtlasOCR, and PaddleOCR. 
+Available models are EasyOCR, Surya, Tesseract, Gemini-2.0-Flash, GPT-4o, GPT-4o-mini, Qwen2-VL, Qwen2.5-VL, AtlasOCR, dots.ocr, and PaddleOCR. 
 ```bash
 cd ocr-eval
 pip3 install -r requirements.txt
+# dots.ocr additionally needs vLLM >= 0.11.0, installed separately: pip3 install 'vllm>=0.11.0'
 python3 eval.py --model_name easyocr # get predictions
 python3 metrics.py --model_name easyocr # get CER, WER, BLEU, chrF, and METEOR scores
 ```

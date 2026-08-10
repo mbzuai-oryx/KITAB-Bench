@@ -3,11 +3,14 @@ import os
 from tqdm import tqdm
 import json
 import datasets
-from models import EasyOCR, GeminiOCR, PaddleGPUOCR, SuryaOCR, TesseractOCR, GPT4oOCR, Qwen2VLOCR, Qwen25VLOCR, ArabicNougat, SmolDocling, QaariOCR, AzureOCR, AtlasOCR, AVAILABLE_MODELS
+import models
+from models import AVAILABLE_MODELS
 
 DEFAULT_PROMPT = "Extract the text in the image. Give me the final text, nothing else."
 RESULTS_DIR = "results"
 MAX_TOKENS = 500
+# Number of samples handed to a batched model at once (see eval_ds_batched).
+CHUNK_SIZE = 512
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 ds_ids = [
@@ -29,38 +32,60 @@ ds_ids = [
 
 def get_model(model_name: str, flash_attn: bool):
     if model_name == "easyocr":
-        return EasyOCR(MAX_TOKENS)
+        return models.EasyOCR(MAX_TOKENS)
     if model_name == "tesseract":
-        return TesseractOCR()
+        return models.TesseractOCR()
     if model_name == "gemini":
-        return GeminiOCR()
+        return models.GeminiOCR()
     if model_name == "paddle":
-        return PaddleGPUOCR(MAX_TOKENS)
+        return models.PaddleGPUOCR(MAX_TOKENS)
     if model_name == "surya":
-        return SuryaOCR(MAX_TOKENS)
+        return models.SuryaOCR(MAX_TOKENS)
     if model_name == "gpt-4o":
-        return GPT4oOCR(max_tokens=MAX_TOKENS, model_name="gpt-4")
+        return models.GPT4oOCR(max_tokens=MAX_TOKENS, model_name="gpt-4")
     if model_name == "gpt-4o-mini":
-        return GPT4oOCR(max_tokens=MAX_TOKENS, model_name="gpt-4o-mini")
+        return models.GPT4oOCR(max_tokens=MAX_TOKENS, model_name="gpt-4o-mini")
     if model_name == "qwen2vl":
-        return Qwen2VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2-VL-7B-Instruct", use_flash_attn=flash_attn)
+        return models.Qwen2VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2-VL-7B-Instruct", use_flash_attn=flash_attn)
     if model_name == "qwen25vl":
-        return Qwen25VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2.5-VL-7B-Instruct", use_flash_attn=flash_attn)
+        return models.Qwen25VLOCR(max_tokens=MAX_TOKENS, model_name="Qwen/Qwen2.5-VL-7B-Instruct", use_flash_attn=flash_attn)
     if model_name == "arabicnougat_small":
-        return ArabicNougat(model_name="MohamedRashad/arabic-small-nougat")
+        return models.ArabicNougat(model_name="MohamedRashad/arabic-small-nougat")
     if model_name == "arabicnougat_base":
-        return ArabicNougat(model_name="MohamedRashad/arabic-base-nougat")
+        return models.ArabicNougat(model_name="MohamedRashad/arabic-base-nougat")
     if model_name == "arabicnougat_large":
-        return ArabicNougat(model_name="MohamedRashad/arabic-large-nougat")
+        return models.ArabicNougat(model_name="MohamedRashad/arabic-large-nougat")
     if model_name == "smoldocling":
-        return SmolDocling()
+        return models.SmolDocling()
     if model_name == "qaari":
-        return QaariOCR(max_tokens=MAX_TOKENS, use_flash_attn=flash_attn)
+        return models.QaariOCR(max_tokens=MAX_TOKENS, use_flash_attn=flash_attn)
     if model_name == "azure": 
-        return AzureOCR()
+        return models.AzureOCR()
     if model_name == "atlasocr":
-        return AtlasOCR(max_tokens=MAX_TOKENS)
+        return models.AtlasOCR(max_tokens=MAX_TOKENS)
+    if model_name == "dotsocr":
+        return models.DotsOCR(max_tokens=MAX_TOKENS)
     raise ValueError(f"Model {model_name} not found")
+
+
+def eval_ds_batched(ds, model, answer_name: str, ds_name: str):
+    """Path for models exposing `batch`: submit a chunk of samples at once so the
+    backend can keep the GPU busy instead of running one image at a time."""
+    data = []
+    for start in tqdm(range(0, len(ds), CHUNK_SIZE), desc=f"Evaluating {ds_name}"):
+        chunk = ds[start : start + CHUNK_SIZE]
+        try:
+            preds = model.batch(DEFAULT_PROMPT, chunk["image"])
+        except Exception as e:
+            print(f"Skipping samples {start}-{start + len(chunk[answer_name])} due to error: {e}")
+            preds = [""] * len(chunk[answer_name])
+        for offset, (pred, gt) in enumerate(zip(preds, chunk[answer_name])):
+            data.append({"idx": start + offset, "gt": gt, "pred": pred})
+    if data and not any(d["pred"] for d in data):
+        # A batched backend fails at the engine level, not per sample: once it is
+        # down every later dataset would silently be written out empty.
+        raise RuntimeError(f"{ds_name}: every prediction is empty, aborting the run")
+    return data
 
 
 def main(args):
@@ -72,15 +97,18 @@ def main(args):
         ds = datasets.load_dataset(ds_id, split="train")
         data = []
         answer_name = "answer" if ds_id in ds_ids[:3] else "text"
-        for idx, sample in tqdm(enumerate(ds), total=len(ds), desc=f"Evaluating {ds_name}"):
-            img = sample["image"]
-            try:
-                pred = model(DEFAULT_PROMPT, img)
-            except Exception as e:
-                print(f"Skipping sample {idx} due to error: {e}")
-                pred = ""
-            gt = sample[answer_name]
-            data.append({"idx": idx, "gt": gt, "pred": pred})
+        if hasattr(model, "batch"):
+            data = eval_ds_batched(ds, model, answer_name, ds_name)
+        else:
+            for idx, sample in tqdm(enumerate(ds), total=len(ds), desc=f"Evaluating {ds_name}"):
+                img = sample["image"]
+                try:
+                    pred = model(DEFAULT_PROMPT, img)
+                except Exception as e:
+                    print(f"Skipping sample {idx} due to error: {e}")
+                    pred = ""
+                gt = sample[answer_name]
+                data.append({"idx": idx, "gt": gt, "pred": pred})
         with open(output_path, "w") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
 
