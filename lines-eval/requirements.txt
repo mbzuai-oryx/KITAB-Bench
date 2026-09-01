@@ -3,6 +3,6 @@ easyocr==1.7.2
 surya-ocr==0.11.0
 pytesseract==0.3.13
 torchmetrics==1.6.1
-nltk==3.9.1
+nltk==3.10.3
 python-Levenshtein==0.26.1
 sacrebleu==2.5.1
